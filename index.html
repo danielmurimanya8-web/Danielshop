@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Shop - Boutique en ligne</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            color: #222;
+        }
+        header {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px 10px;
+        }
+        header h1 {
+            margin: 0;
+            color: #facc15;
+        }
+        nav {
+            background: #facc15;
+            padding: 12px;
+            text-align: center;
+        }
+        nav a {
+            color: #111827;
+            text-decoration: none;
+            margin: 10px;
+            font-weight: bold;
+        }
+        .intro {
+            text-align: center;
+            padding: 25px 10px;
+        }
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+        .product .emoji {
+            font-size: 65px;
+        }
+        .product h3 {
+            color: #111827;
+        }
+        .price {
+            color: #15803d;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        button {
+            background: #111827;
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🛍️ DANIEL SHOP</h1>
+        <p>Votre satisfaction, notre priorité !</p>
+    </header>
+
+    <nav>
+        <a href="#accueil">Accueil</a>
+        <a href="#produits">Produits</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="intro" id="accueil">
+        <h2>Bienvenue chez Daniel Shop !</h2>
+        <p>Découvrez nos produits et choisissez ce qui vous plaît.</p>
+    </section>
+
+    <section class="products" id="produits">
+        <div class="product">
+            <div class="emoji">📱</div>
+            <h3>Téléphone</h3>
+            <p>Des téléphones pour vos besoins quotidiens.</p>
+            <p class="price">Prix à demander</p>
+            <button onclick="commander('Téléphone')">Commander</button>
+        </div>
+
+        <div class="product">
+            <div class="emoji">👟</div>
+            <h3>Chaussures</h3>
+            <p>Des chaussures pour tous les styles.</p>
+            <p class="price">Prix à demander</p>
+            <button onclick="commander('Chaussures')">Commander</button>
+        </div>
+
+        <div class="product">
+            <div class="emoji">👕</div>
+            <h3>Vêtements</h3>
+            <p>Des vêtements pour votre quotidien.</p>
+            <p class="price">Prix à demander</p>
+            <button onclick="commander('Vêtements')">Commander</button>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h3>Contact - Daniel Shop</h3>
+        <p>Pour commander, contactez le propriétaire de la boutique.</p>
+        <p>© 2026 Daniel Shop - Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        function commander(produit) {
+            alert("Vous avez choisi : " + produit +
+            ". Contactez Daniel Shop pour passer votre commande.");
+        }
+    </script>
+
+</body>
+</html>
