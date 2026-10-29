@@ -2,232 +2,671 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daniel Shop - Boutique en ligne</title>
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #ffffff;
-            color: #1f2937;
-        }
+<title>Daniel Shop | Boutique de téléphones</title>
 
-        header {
-            background: #ffffff;
-            text-align: center;
-            padding: 30px 15px;
-            border-bottom: 1px solid #eeeeee;
-        }
+<meta name="description" content="Découvrez les téléphones Samsung, iPhone, Redmi, Infinix et Tecno chez Daniel Shop. Contactez-nous sur WhatsApp.">
 
-        header h1 {
-            margin: 0;
-            color: #111827;
-            font-size: 30px;
-        }
+<style>
+:root {
+    --green: #16a34a;
+    --dark: #111827;
+    --light: #f8fafc;
+    --gray: #64748b;
+    --border: #e5e7eb;
+}
 
-        header h1 span {
-            color: #16a34a;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        header p {
-            color: #6b7280;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 22px;
-            padding: 15px;
-            background: #f9fafb;
-        }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #ffffff;
+    color: var(--dark);
+}
 
-        nav a {
-            color: #111827;
-            text-decoration: none;
-            font-weight: bold;
-        }
+a {
+    text-decoration: none;
+}
 
-        .intro {
-            text-align: center;
-            padding: 35px 15px 20px;
-        }
+.topbar {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 13px;
+}
 
-        .intro h2 {
-            font-size: 27px;
-            margin-bottom: 10px;
-        }
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 20px 6%;
+    border-bottom: 1px solid var(--border);
+}
 
-        .intro p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--dark);
+}
 
-        .products {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1100px;
-            margin: auto;
-        }
+.logo span {
+    color: var(--green);
+}
 
-        .product {
-            background: #ffffff;
-            padding: 24px 18px;
-            text-align: center;
-            border: 1px solid #e5e7eb;
-            border-radius: 14px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
-        }
+.header-contact {
+    background: var(--green);
+    color: white;
+    padding: 11px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
 
-        .emoji {
-            font-size: 65px;
-            margin-bottom: 12px;
-        }
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 28px;
+    padding: 16px;
+    border-bottom: 1px solid var(--border);
+}
 
-        .product h3 {
-            color: #111827;
-            font-size: 21px;
-        }
+nav a {
+    color: var(--dark);
+    font-size: 14px;
+    font-weight: bold;
+}
 
-        .product p {
-            color: #6b7280;
-            line-height: 1.5;
-        }
+nav a:hover {
+    color: var(--green);
+}
 
-        .price {
-            color: #15803d !important;
-            font-weight: bold;
-            font-size: 18px;
-            margin: 18px 0;
-        }
+.hero {
+    background: linear-gradient(120deg, #f0fdf4, #ffffff 70%);
+    padding: 65px 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+}
 
-        .btn {
-            display: inline-block;
-            padding: 12px 18px;
-            margin: 5px 2px;
-            border-radius: 7px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-        }
+.hero-content {
+    max-width: 650px;
+}
 
-        .whatsapp {
-            background: #16a34a;
-            color: white;
-        }
+.tag {
+    display: inline-block;
+    background: #dcfce7;
+    color: #166534;
+    padding: 8px 12px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+}
 
-        .phone {
-            background: #111827;
-            color: white;
-        }
+.hero h1 {
+    font-size: clamp(34px, 5vw, 54px);
+    line-height: 1.12;
+    margin: 20px 0;
+}
 
-        .contact {
-            text-align: center;
-            background: #f9fafb;
-            padding: 30px 15px;
-            margin-top: 25px;
-        }
+.hero h1 span {
+    color: var(--green);
+}
 
-        .contact h2 {
-            color: #111827;
-        }
+.hero p {
+    color: var(--gray);
+    line-height: 1.8;
+    font-size: 16px;
+}
 
-        footer {
-            background: #111827;
-            color: white;
-            text-align: center;
-            padding: 20px 12px;
-            font-size: 14px;
-        }
+.hero-image {
+    width: 290px;
+    max-width: 40%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 24px;
+    box-shadow: 0 18px 45px #00000018;
+}
 
-        @media (max-width: 480px) {
-            .intro h2 {
-                font-size: 23px;
-            }
+.btn {
+    display: inline-block;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 17px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+}
 
-            .products {
-                padding: 15px;
-            }
-        }
-    </style>
+.btn-green {
+    background: var(--green);
+    color: white;
+}
+
+.btn-dark {
+    background: var(--dark);
+    color: white;
+}
+
+.hero .btn {
+    margin: 10px 8px 0 0;
+}
+
+.section {
+    padding: 55px 6%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.section-heading h2 {
+    font-size: 30px;
+    margin: 0 0 12px;
+}
+
+.section-heading p {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.product {
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    overflow: hidden;
+    background: white;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px #0000000c;
+}
+
+.product-image {
+    width: 100%;
+    height: 210px;
+    object-fit: contain;
+    padding: 18px;
+    background: #f8fafc;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.category {
+    color: var(--green);
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.product h3 {
+    font-size: 20px;
+    margin: 9px 0;
+}
+
+.description {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 44px;
+}
+
+.price-label {
+    color: var(--gray);
+    font-size: 12px;
+    margin-top: 18px;
+}
+
+.price-usd {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 5px 0;
+}
+
+.price-fbu {
+    color: var(--green);
+    font-size: 15px;
+    font-weight: bold;
+    margin: 5px 0 12px;
+}
+
+.price-note {
+    color: #92400e;
+    background: #fef3c7;
+    border-radius: 6px;
+    padding: 8px;
+    font-size: 11px;
+    line-height: 1.5;
+    margin: 12px 0;
+}
+
+.product-actions {
+    display: grid;
+    gap: 9px;
+    margin-top: 16px;
+}
+
+.product-actions a {
+    width: 100%;
+}
+
+.why {
+    background: var(--light);
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 22px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.feature {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+    padding: 25px 18px;
+}
+
+.feature-icon {
+    font-size: 32px;
+}
+
+.feature h3 {
+    margin-bottom: 8px;
+}
+
+.feature p {
+    color: var(--gray);
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.contact {
+    text-align: center;
+    padding: 55px 20px;
+}
+
+.contact h2 {
+    font-size: 30px;
+}
+
+.contact p {
+    color: var(--gray);
+    line-height: 1.7;
+}
+
+.contact .btn {
+    margin: 8px 4px;
+}
+
+footer {
+    background: var(--dark);
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
+}
+
+footer p {
+    font-size: 13px;
+    color: #cbd5e1;
+    line-height: 1.7;
+}
+
+footer a {
+    color: #86efac;
+}
+
+@media (max-width: 600px) {
+    header {
+        padding: 17px 4%;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .header-contact {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
+    .hero {
+        padding: 42px 6%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-image {
+        max-width: 100%;
+        width: 100%;
+        height: 220px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .section {
+        padding: 42px 5%;
+    }
+
+    .section-heading h2 {
+        font-size: 26px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .product-image {
+        height: 235px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <header id="accueil">
-        <h1>🛍️ DANIEL <span>SHOP</span></h1>
-        <p>Votre satisfaction, notre priorité !</p>
-    </header>
+<div class="topbar">
+    Bienvenue chez Daniel Shop — Votre satisfaction, notre priorité !
+</div>
 
-    <nav>
-        <a href="#accueil">Accueil</a>
-        <a href="#produits">Produits</a>
-        <a href="#contact">Contact</a>
-    </nav>
+<header>
+    <a class="logo" href="#accueil">DANIEL <span>SHOP.</span></a>
+    <a class="header-contact"
+       href="https://wa.me/25766124880?text=Bonjour%20Daniel%20Shop%2C%20je%20voudrais%20des%20informations."
+       target="_blank" rel="noopener">
+       WhatsApp
+    </a>
+</header>
 
-    <section class="intro">
-        <h2>Bienvenue chez Daniel Shop !</h2>
-        <p>Découvrez nos produits et contactez-nous facilement
-        pour obtenir les prix et passer votre commande.</p>
-    </section>
+<nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#produits">Téléphones</a>
+    <a href="#avantages">Nos avantages</a>
+    <a href="#contact">Contact</a>
+</nav>
 
-    <section class="products" id="produits">
+<section class="hero" id="accueil">
+    <div class="hero-content">
+        <span class="tag">📱 VOTRE BOUTIQUE EN LIGNE</span>
 
-        <div class="product">
-            <div class="emoji">📱</div>
-            <h3>Téléphones</h3>
-            <p>Des téléphones pour vos besoins quotidiens.</p>
-            <p class="price">Prix à confirmer</p>
-            <a class="btn whatsapp"
-               href="https://wa.me/25766124880?text=Bonjour%20Daniel%20Shop%2C%20je%20voudrais%20conna%C3%AEtre%20le%20prix%20des%20t%C3%A9l%C3%A9phones."
-               target="_blank" rel="noopener">Commander WhatsApp</a>
-            <a class="btn phone" href="tel:+25766124880">Appeler</a>
-        </div>
+        <h1>La technologie à votre portée chez <span>Daniel Shop</span></h1>
 
-        <div class="product">
-            <div class="emoji">👟</div>
-            <h3>Chaussures</h3>
-            <p>Des chaussures pour tous les styles.</p>
-            <p class="price">Prix à confirmer</p>
-            <a class="btn whatsapp"
-               href="https://wa.me/25766124880?text=Bonjour%20Daniel%20Shop%2C%20je%20voudrais%20conna%C3%AEtre%20le%20prix%20des%20chaussures."
-               target="_blank" rel="noopener">Commander WhatsApp</a>
-            <a class="btn phone" href="tel:+25766124880">Appeler</a>
-        </div>
+        <p>
+            Découvrez notre sélection de smartphones Samsung,
+            iPhone, Redmi, Infinix et Tecno. Choisissez votre modèle
+            et contactez-nous facilement pour commander.
+        </p>
 
-        <div class="product">
-            <div class="emoji">👕</div>
-            <h3>Vêtements</h3>
-            <p>Des vêtements pour votre quotidien.</p>
-            <p class="price">Prix à confirmer</p>
-            <a class="btn whatsapp"
-               href="https://wa.me/25766124880?text=Bonjour%20Daniel%20Shop%2C%20je%20voudrais%20conna%C3%AEtre%20le%20prix%20des%20v%C3%AAtements."
-               target="_blank" rel="noopener">Commander WhatsApp</a>
-            <a class="btn phone" href="tel:+25766124880">Appeler</a>
-        </div>
+        <a class="btn btn-green" href="#produits">
+            Découvrir les téléphones
+        </a>
 
-    </section>
-
-    <section class="contact" id="contact">
-        <h2>Contactez Daniel Shop</h2>
-        <p>Pour connaître nos prix ou passer une commande,
-        contactez-nous par WhatsApp ou par téléphone.</p>
-        <a class="btn whatsapp"
+        <a class="btn btn-dark"
            href="https://wa.me/25766124880"
-           target="_blank" rel="noopener">Écrire sur WhatsApp</a>
-        <a class="btn phone" href="tel:+25766124880">+257 66 12 48 80</a>
-        <p>Nous serons heureux de vous servir !</p>
-    </section>
+           target="_blank" rel="noopener">
+           Nous contacter
+        </a>
+    </div>
 
-    <footer>
-        <p>© 2026 Daniel Shop - Tous droits réservés.</p>
-    </footer>
+    <img class="hero-image"
+         src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=700&q=85"
+         alt="Smartphone moderne"
+         onerror="this.style.display='none'">
+</section>
+
+<section class="section" id="produits">
+    <div class="section-heading">
+        <h2>Nos téléphones</h2>
+        <p>Découvrez nos modèles et consultez les prix indicatifs.</p>
+        <p>Les prix sont provisoires pour la présentation du site.</p>
+    </div>
+
+    <div class="products">
+
+        <article class="product">
+            <img class="product-image"
+                 src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=600&q=85"
+                 alt="Téléphone Samsung Galaxy"
+                 loading="lazy"
+                 onerror="this.src='https://placehold.co/600x400/f1f5f9/111827?text=Samsung+Galaxy'">
+
+            <div class="product-info">
+                <span class="category">Samsung</span>
+                <h3>Samsung Galaxy A06</h3>
+                <p class="description">
+                    Un smartphone d'entrée de gamme pour les besoins quotidiens.
+                </p>
+
+                <p class="price-label">Prix indicatif en USD</p>
+                <p class="price-usd">79 $</p>
+                <p class="price-fbu">≈ 230 000 FBU</p>
+
+                <p class="price-note">
+                    Prix d'exemple pour le TP — à confirmer avant achat.
+                </p>
+
+                <div class="product-actions">
+                    <a class="btn btn-green"
+                       href="https://wa.me/25766124880?text=Bonjour%20Daniel%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Samsung%20Galaxy%20A06."
+                       target="_blank" rel="noopener">Commander sur WhatsApp</a>
+                    <a class="btn btn-dark" href="tel:+25766124880">📞 Appeler</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="product">
+            <img class="product-image"
+                 src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=85"
+                 alt="Téléphone iPhone"
+                 loading="lazy"
+                 onerror="this.src='https://placehold.co/600x400/f1f5f9/111827?text=iPhone'">
+
+            <div class="product-info">
+                <span class="category">Apple</span>
+                <h3>iPhone SE (2020)</h3>
+                <p class="description">
+                    Un iPhone compact et pratique, proposé ici en version reconditionnée.
+                </p>
+
+                <p class="price-label">Prix indicatif en USD</p>
+                <p class="price-usd">119 $</p>
+                <p class="price-fbu">≈ 345 000 FBU</p>
+
+                <p class="price-note">
+                    Exemple pour le TP. État et prix réels à confirmer.
+                </p>
+
+                <div class="product-actions">
+                    <a class="btn btn-green"
+                       href="https://wa.me/25766124880?text=Bonjour%20Daniel%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20l'iPhone%20SE%202020."
+                       target="_blank" rel="noopener">Commander sur WhatsApp</a>
+                    <a class="btn btn-dark" href="tel:+25766124880">📞 Appeler</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="product">
+            <img class="product-image"
+                 src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=85"
+                 alt="Smartphone Redmi"
+                 loading="lazy"
+                 onerror="this.src='https://placehold.co/600x400/f1f5f9/111827?text=Redmi'">
+
+            <div class="product-info">
+                <span class="category">Xiaomi</span>
+                <h3>Redmi A3</h3>
+                <p class="description">
+                    Un smartphone économique pour communiquer et utiliser ses applications.
+                </p>
+
+                <p class="price-label">Prix indicatif en USD</p>
+                <p class="price-usd">69 $</p>
+                <p class="price-fbu">≈ 200 000 FBU</p>
+
+                <p class="price-note">
+                    Prix d'exemple pour le TP — à confirmer avant achat.
+                </p>
+
+                <div class="product-actions">
+                    <a class="btn btn-green"
+                       href="https://wa.me/25766124880?text=Bonjour%20Daniel%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Redmi%20A3."
+                       target="_blank" rel="noopener">Commander sur WhatsApp</a>
+                    <a class="btn btn-dark" href="tel:+25766124880">📞 Appeler</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="product">
+            <img class="product-image"
+                 src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=600&q=85"
+                 alt="Smartphone Infinix"
+                 loading="lazy"
+                 onerror="this.src='https://placehold.co/600x400/f1f5f9/111827?text=Infinix'">
+
+            <div class="product-info">
+                <span class="category">Infinix</span>
+                <h3>Infinix Smart 9</h3>
+                <p class="description">
+                    Un modèle accessible pour les appels, les messages et le multimédia.
+                </p>
+
+                <p class="price-label">Prix indicatif en USD</p>
+                <p class="price-usd">75 $</p>
+                <p class="price-fbu">≈ 220 000 FBU</p>
+
+                <p class="price-note">
+                    Prix d'exemple pour le TP — à confirmer avant achat.
+                </p>
+
+                <div class="product-actions">
+                    <a class="btn btn-green"
+                       href="https://wa.me/25766124880?text=Bonjour%20Daniel%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20l'Infinix%20Smart%209."
+                       target="_blank" rel="noopener">Commander sur WhatsApp</a>
+                    <a class="btn btn-dark" href="tel:+25766124880">📞 Appeler</a>
+                </div>
+            </div>
+        </article>
+
+        <article class="product">
+            <img class="product-image"
+                 src="https://images.unsplash.com/photo-1598327106026-d9521da673d1?auto=format&fit=crop&w=600&q=85"
+                 alt="Smartphone Tecno"
+                 loading="lazy"
+                 onerror="this.src='https://placehold.co/600x400/f1f5f9/111827?text=Tecno'">
+
+            <div class="product-info">
+                <span class="category">Tecno</span>
+                <h3>Tecno Spark Go 1</h3>
+                <p class="description">
+                    Un smartphone d'entrée de gamme adapté aux usages essentiels.
+                </p>
+
+                <p class="price-label">Prix indicatif en USD</p>
+                <p class="price-usd">75 $</p>
+                <p class="price-fbu">≈ 220 000 FBU</p>
+
+                <p class="price-note">
+                    Prix d'exemple pour le TP — à confirmer avant achat.
+                </p>
+
+                <div class="product-actions">
+                    <a class="btn btn-green"
+                       href="https://wa.me/25766124880?text=Bonjour%20Daniel%20Shop%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20le%20Tecno%20Spark%20Go%201."
+                       target="_blank" rel="noopener">Commander sur WhatsApp</a>
+                    <a class="btn btn-dark" href="tel:+25766124880">📞 Appeler</a>
+                </div>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+<section class="section why" id="avantages">
+    <div class="section-heading">
+        <h2>Pourquoi choisir Daniel Shop ?</h2>
+        <p>Une expérience simple pour découvrir nos produits et nous contacter.</p>
+    </div>
+
+    <div class="features">
+        <div class="feature">
+            <div class="feature-icon">📱</div>
+            <h3>Plusieurs marques</h3>
+            <p>Samsung, iPhone, Redmi, Infinix et Tecno au même endroit.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💬</div>
+            <h3>Commande facile</h3>
+            <p>Contactez directement Daniel Shop sur WhatsApp.</p>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">💰</div>
+            <h3>Prix affichés</h3>
+            <p>Consultez les prix indicatifs en dollars et en francs burundais.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h2>Besoin d'un téléphone ?</h2>
+    <p>
+        Une question sur un modèle ou son prix ?
+        Contactez Daniel Shop pour plus d'informations.
+    </p>
+
+    <a class="btn btn-green"
+       href="https://wa.me/25766124880?text=Bonjour%20Daniel%20Shop%2C%20je%20voudrais%20des%20informations%20sur%20vos%20t%C3%A9l%C3%A9phones."
+       target="_blank" rel="noopener">
+       💬 Écrire sur WhatsApp
+    </a>
+
+    <a class="btn btn-dark" href="tel:+25766124880">
+       📞 +257 66 12 48 80
+    </a>
+</section>
+
+<footer>
+    <div class="logo" style="color:white">DANIEL <span>SHOP.</span></div>
+    <p>Votre satisfaction, notre priorité !</p>
+    <p>Contact : +257 66 12 48 80</p>
+    <p>© 2026 Daniel Shop — Tous droits réservés.</p>
+    <p>Les prix affichés sont provisoires et doivent être confirmés.</p>
+</footer>
 
 </body>
 </html>
