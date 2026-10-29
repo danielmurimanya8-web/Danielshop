@@ -4,1156 +4,418 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Shop | Téléphones au Burundi</title>
-  <meta name="description" content="Daniel Shop à Bujumbura, Burundi. Découvrez des smartphones, ordinateurs et accessoires. Commandez sur WhatsApp.">
-
+  <title>Daniel Shop | Boutique en ligne</title>
+  <meta name="description" content="Daniel Shop, téléphones, ordinateurs et accessoires à Bujumbura, Burundi.">
   <style>
     :root {
-      --primary: #0b1533;
-      --secondary: #142650;
-      --accent: #f5b82e;
-      --light: #f5f7fc;
-      --text: #18233b;
-      --muted: #6b7890;
-      --green: #16834a;
+      --navy: #101827;
+      --gold: #e8b84c;
+      --light: #f4f6f9;
       --white: #ffffff;
-      --shadow: 0 8px 25px rgba(10, 25, 55, .09);
+      --text: #172033;
     }
 
     * { box-sizing: border-box; }
 
-    html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: Arial, sans-serif;
       background: var(--light);
       color: var(--text);
     }
 
-    a { text-decoration: none; }
-
-    button, input, select { font: inherit; }
-
-    .topbar {
-      background: #071127;
-      color: white;
-      text-align: center;
-      padding: 10px 14px;
-      font-size: 13px;
-    }
-
     header {
-      background: var(--primary);
+      background: var(--navy);
       color: white;
-      padding: 20px 5%;
+      padding: 22px 16px;
+      text-align: center;
+      border-bottom: 3px solid var(--gold);
     }
 
-    .header-content {
-      max-width: 1200px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
+    header h1 {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: 30px;
     }
 
-    .logo {
-      font-size: 27px;
-      font-weight: 900;
-      letter-spacing: -.8px;
-      color: white;
-    }
-
-    .logo span { color: var(--accent); }
-
-    .header-info {
-      color: #dce5fa;
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 7px;
-      border: none;
-      border-radius: 9px;
-      padding: 12px 17px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: .2s;
-    }
-
-    .btn:hover { transform: translateY(-2px); }
-
-    .btn-yellow {
-      background: var(--accent);
-      color: #111827;
-    }
-
-    .btn-whatsapp {
-      background: #20b65b;
-      color: white;
-    }
-
-    .btn-dark {
-      background: var(--primary);
-      color: white;
-    }
+    header p { margin: 6px 0; }
 
     .hero {
-      background: linear-gradient(120deg, #0b1533, #1d3e77);
+      background: linear-gradient(135deg, #101827, #263650);
       color: white;
-      padding: 65px 5%;
-    }
-
-    .hero-content {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      background: rgba(245, 184, 46, .15);
-      color: var(--accent);
-      border: 1px solid rgba(245, 184, 46, .45);
-      padding: 8px 13px;
-      border-radius: 30px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-
-    .hero h1 {
-      font-size: clamp(34px, 5vw, 55px);
-      line-height: 1.12;
-      margin: 20px 0 15px;
-    }
-
-    .hero h1 span { color: var(--accent); }
-
-    .hero p {
-      color: #dce5fa;
-      font-size: 16px;
-      line-height: 1.8;
-      max-width: 580px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 25px;
-    }
-
-    .hero-card {
-      background: rgba(255,255,255,.09);
-      border: 1px solid rgba(255,255,255,.16);
-      border-radius: 22px;
-      padding: 28px;
+      padding: 35px 18px;
       text-align: center;
     }
 
-    .hero-card .phone-icon {
-      font-size: 90px;
-      margin: 5px 0 15px;
+    .hero h2 { color: var(--gold); }
+
+    .hero a {
+      display: inline-block;
+      background: var(--gold);
+      color: #101827;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
     }
 
-    .hero-card h3 { margin: 10px 0; }
-
-    .hero-card p { margin: 0 auto; font-size: 14px; }
-
-    .trust-row {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 25px;
-      color: #e2eaff;
-      font-size: 13px;
-    }
-
-    .section {
-      max-width: 1200px;
+    .container {
+      max-width: 1100px;
       margin: auto;
-      padding: 55px 5%;
+      padding: 20px 14px;
     }
 
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-bottom: 25px;
-    }
-
-    .section-heading h2 {
-      font-size: 30px;
-      margin: 0 0 8px;
-      color: var(--primary);
-    }
-
-    .section-heading p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .search-bar {
+    .tools {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       margin-bottom: 20px;
     }
 
-    .search-bar input, .search-bar select {
-      border: 1px solid #dce2ee;
+    input, select {
+      padding: 12px;
+      border: 1px solid #ccd2dc;
+      border-radius: 8px;
       background: white;
-      border-radius: 9px;
-      padding: 13px;
-      min-width: 180px;
-      outline-color: var(--accent);
+      font-size: 15px;
     }
 
-    .search-bar input { flex: 1; }
+    #search { flex: 1; min-width: 180px; }
 
-    .filters {
-      display: flex;
-      gap: 9px;
-      flex-wrap: wrap;
-      margin-bottom: 25px;
-    }
+    h2.section-title { margin-top: 28px; }
 
-    .filter-btn {
-      border: 1px solid #dce2ee;
-      border-radius: 30px;
-      padding: 10px 15px;
-      background: white;
-      color: var(--text);
-      cursor: pointer;
-    }
-
-    .filter-btn.active {
-      background: var(--primary);
-      color: white;
-      border-color: var(--primary);
-    }
-
-    .products-grid {
+    .products {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
+      gap: 15px;
     }
 
     .product {
       background: white;
-      border: 1px solid #e9edf5;
-      border-radius: 15px;
+      border-radius: 12px;
       overflow: hidden;
-      box-shadow: var(--shadow);
+      box-shadow: 0 3px 12px #00000012;
       display: flex;
       flex-direction: column;
-      transition: .2s;
     }
 
-    .product:hover { transform: translateY(-4px); }
-
-    .product-image {
-      height: 190px;
-      background: #edf1f8;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .product-image img {
+    .product img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: 155px;
+      object-fit: contain;
+      padding: 8px;
+      background: #fff;
     }
 
-    .product-badge {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      background: var(--accent);
-      color: #172033;
-      font-size: 11px;
-      font-weight: 800;
-      padding: 6px 9px;
-      border-radius: 20px;
-    }
-
-    .product-body {
-      padding: 16px;
+    .product-info {
+      padding: 12px;
       display: flex;
       flex-direction: column;
       flex: 1;
-    }
-
-    .product-category {
-      font-size: 11px;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: .7px;
-      font-weight: 700;
     }
 
     .product h3 {
       font-size: 16px;
-      margin: 9px 0;
-      line-height: 1.4;
-    }
-
-    .product-description {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.5;
-      margin-bottom: 12px;
+      margin: 0 0 8px;
     }
 
     .price {
-      font-size: 19px;
-      font-weight: 900;
-      color: var(--primary);
+      color: #997017;
+      font-weight: bold;
+      line-height: 1.6;
+      margin: 0 0 12px;
     }
 
-    .price-bif {
-      color: var(--green);
+    button {
+      cursor: pointer;
+      border: 0;
+      border-radius: 7px;
+      padding: 11px;
+      font-weight: bold;
       font-size: 14px;
-      font-weight: 700;
-      margin: 5px 0 13px;
     }
 
-    .product-actions {
-      display: flex;
-      gap: 8px;
+    .add {
+      background: var(--navy);
+      color: white;
       margin-top: auto;
     }
 
-    .product-actions .btn {
-      padding: 10px 8px;
-      font-size: 12px;
-      flex: 1;
-    }
-
-    .empty-results {
-      display: none;
-      text-align: center;
-      color: var(--muted);
+    .cart {
+      margin-top: 30px;
+      padding: 18px;
       background: white;
-      padding: 35px;
       border-radius: 12px;
-      grid-column: 1 / -1;
+      box-shadow: 0 3px 12px #00000010;
     }
-
-    .cart-section {
-      background: white;
-      border-top: 1px solid #e7ebf3;
-      border-bottom: 1px solid #e7ebf3;
-    }
-
-    .cart-layout {
-      display: grid;
-      grid-template-columns: 1fr 350px;
-      gap: 25px;
-      align-items: start;
-    }
-
-    .cart-box {
-      background: white;
-      border: 1px solid #e4e9f2;
-      border-radius: 14px;
-      padding: 22px;
-    }
-
-    .cart-box h3 { margin-top: 0; }
 
     .cart-item {
       display: flex;
-      justify-content: space-between;
-      gap: 15px;
       align-items: center;
-      border-bottom: 1px solid #edf0f5;
-      padding: 14px 0;
-    }
-
-    .cart-item:last-child { border-bottom: none; }
-
-    .cart-item-name { font-weight: 700; }
-
-    .cart-item-price {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 5px;
-    }
-
-    .quantity-controls {
-      display: flex;
+      justify-content: space-between;
       gap: 8px;
-      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
     }
 
-    .quantity-controls button {
-      width: 30px;
-      height: 30px;
-      border: 1px solid #dce2ee;
-      border-radius: 7px;
-      background: white;
-      cursor: pointer;
+    .cart-item button {
+      background: #fce4e4;
+      color: #a00;
+      padding: 7px 10px;
     }
 
-    .remove-btn {
-      color: #c32c2c;
-      border: none !important;
-      background: transparent !important;
-      font-size: 17px;
-    }
-
-    .cart-empty {
-      color: var(--muted);
-      padding: 12px 0;
-      line-height: 1.6;
-    }
-
-    .cart-total {
-      border-top: 1px solid #e5e9f1;
-      padding-top: 17px;
-      margin-top: 15px;
-      font-size: 17px;
-      font-weight: 900;
-      line-height: 1.7;
-    }
-
-    .cart-note {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.6;
-      margin: 12px 0 18px;
-    }
-
-    .full-width { width: 100%; }
-
-    .features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .feature {
-      background: white;
-      padding: 25px;
-      border: 1px solid #e9edf5;
-      border-radius: 14px;
-    }
-
-    .feature .icon { font-size: 30px; }
-
-    .feature h3 { margin: 12px 0 8px; }
-
-    .feature p {
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.7;
-      margin: 0;
-    }
-
-    .contact-banner {
-      background: linear-gradient(120deg, #0b1533, #1d3e77);
+    .checkout {
+      background: #168b49;
       color: white;
-      padding: 40px;
-      border-radius: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
+      width: 100%;
+      margin-top: 14px;
+      font-size: 16px;
     }
 
-    .contact-banner h2 { margin: 0 0 10px; }
-
-    .contact-banner p {
-      margin: 0;
-      color: #dce5fa;
-      line-height: 1.7;
+    .clear {
+      background: #e9edf3;
+      color: #182033;
+      margin-top: 10px;
     }
 
     footer {
-      background: #071127;
+      margin-top: 30px;
+      background: var(--navy);
       color: white;
-      padding: 30px 5%;
       text-align: center;
-      font-size: 13px;
-      line-height: 1.8;
+      padding: 25px 12px;
     }
 
-    footer p { margin: 5px 0; }
+    footer a { color: var(--gold); }
 
-    .footer-muted { color: #aebbd5; }
+    .empty { color: #697386; }
 
-    .floating-whatsapp {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 10;
-      width: 57px;
-      height: 57px;
-      border-radius: 50%;
-      background: #20b65b;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 27px;
-      box-shadow: 0 6px 20px rgba(0,0,0,.2);
-    }
-
-    @media (max-width: 1000px) {
-      .products-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-      .cart-layout { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 700px) {
-      .hero-content { grid-template-columns: 1fr; }
-      .hero { padding: 45px 5%; }
-      .hero-card { display: none; }
-      .products-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-      .product-image { height: 145px; }
-      .product-body { padding: 12px; }
-      .product h3 { font-size: 14px; }
-      .price { font-size: 17px; }
-      .price-bif { font-size: 12px; }
-      .features { grid-template-columns: 1fr; }
-      .section { padding: 40px 4%; }
-      .section-heading h2 { font-size: 25px; }
-      .contact-banner { padding: 25px; }
-      .header-content { align-items: flex-start; }
-      .header-actions { width: 100%; }
-      .header-actions .btn { flex: 1; }
-      .search-bar input, .search-bar select { width: 100%; }
-    }
-
-    @media (max-width: 360px) {
-      .products-grid { grid-template-columns: 1fr; }
-      .product-image { height: 210px; }
+    @media (min-width: 700px) {
+      .products { grid-template-columns: repeat(4, 1fr); }
+      .product img { height: 190px; }
     }
   </style>
 </head>
 
 <body>
-  <div class="topbar">
-    📍 Bujumbura, Burundi 🇧🇮 | 💵 Prix en USD et FBu | 📱 Commandes WhatsApp
-  </div>
-
   <header>
-    <div class="header-content">
-      <a href="#" class="logo">DANIEL <span>SHOP</span></a>
-
-      <div class="header-info">
-        📍 Bujumbura, Burundi<br>
-        📞 +257 66 12 48 80
-      </div>
-
-      <div class="header-actions">
-        <a class="btn btn-whatsapp" href="https://wa.me/25766124880" target="_blank" rel="noopener">
-          WhatsApp
-        </a>
-        <a class="btn btn-yellow" href="#produits">Voir les produits</a>
-      </div>
-    </div>
+    <h1>👑 DANIEL SHOP</h1>
+    <p>Votre boutique en ligne</p>
+    <p>📍 Bujumbura, Burundi 🇧🇮</p>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-content">
-        <div>
-          <span class="hero-tag">⭐ VOTRE BOUTIQUE EN LIGNE</span>
-          <h1>La technologie à votre portée chez <span>Daniel Shop.</span></h1>
-          <p>
-            Découvrez nos téléphones, ordinateurs et accessoires.
-            Consultez les prix en dollars américains et en francs burundais,
-            puis contactez-nous directement sur WhatsApp.
-          </p>
+  <section class="hero">
+    <h2>Bienvenue chez Daniel Shop !</h2>
+    <p>Téléphones, ordinateurs et accessoires au même endroit.</p>
+    <p>Des produits pour faciliter votre quotidien.</p>
+    <a href="#boutique">Découvrir les produits</a>
+  </section>
 
-          <div class="hero-buttons">
-            <a href="#produits" class="btn btn-yellow">🛍️ Explorer la boutique</a>
-            <a href="#contact" class="btn btn-whatsapp">💬 Nous contacter</a>
-          </div>
+  <main class="container" id="boutique">
+    <h2 class="section-title">🛍️ Notre boutique</h2>
 
-          <div class="trust-row">
-            <span>✓ Plusieurs catégories</span>
-            <span>✓ Commande WhatsApp</span>
-            <span>✓ Prix en USD et FBu</span>
-          </div>
-        </div>
+    <div class="tools">
+      <input id="search" type="search" placeholder="Rechercher un produit..."
+        oninput="renderProducts()">
 
-        <div class="hero-card">
-          <div class="phone-icon">📱</div>
-          <h3>Bienvenue chez Daniel Shop</h3>
-          <p>Votre boutique de téléphones, ordinateurs et accessoires à Bujumbura.</p>
-        </div>
-      </div>
-    </section>
+      <select id="category" onchange="renderProducts()">
+        <option value="Tous">Toutes les catégories</option>
+        <option value="Téléphones">Téléphones</option>
+        <option value="Ordinateurs">Ordinateurs</option>
+        <option value="Accessoires">Accessoires</option>
+      </select>
+    </div>
 
-    <section class="section" id="produits">
-      <div class="section-heading">
-        <div>
-          <h2>Nos produits</h2>
-          <p>Choisissez un produit et ajoutez-le à votre panier.</p>
-        </div>
-      </div>
+    <div class="products" id="products"></div>
 
-      <div class="search-bar">
-        <input id="searchInput" type="search" placeholder="🔎 Rechercher un produit..." aria-label="Rechercher un produit">
-        <select id="sortSelect" aria-label="Trier les produits">
-          <option value="default">Tri par défaut</option>
-          <option value="low">Prix : croissant</option>
-          <option value="high">Prix : décroissant</option>
-          <option value="name">Nom : A à Z</option>
-        </select>
-      </div>
-
-      <div class="filters" aria-label="Catégories">
-        <button class="filter-btn active" data-category="all">Tout</button>
-        <button class="filter-btn" data-category="Téléphones">📱 Téléphones</button>
-        <button class="filter-btn" data-category="Ordinateurs">💻 Ordinateurs</button>
-        <button class="filter-btn" data-category="Accessoires">🎧 Accessoires</button>
-      </div>
-
-      <div class="products-grid" id="productsGrid">
-        <article class="product" data-name="Samsung Galaxy A06" data-category="Téléphones" data-price="79">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80" alt="Téléphone Samsung Galaxy A06" loading="lazy">
-            <span class="product-badge">Populaire</span>
-          </div>
-          <div class="product-body">
-            <div class="product-category">Téléphones</div>
-            <h3>Samsung Galaxy A06</h3>
-            <div class="product-description">Smartphone pour les usages quotidiens.</div>
-            <div class="price">$79.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="iPhone SE 2020" data-category="Téléphones" data-price="119">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80" alt="Smartphone de type iPhone" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Téléphones</div>
-            <h3>iPhone SE 2020</h3>
-            <div class="product-description">Format compact et performances Apple.</div>
-            <div class="price">$119.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Redmi A3" data-category="Téléphones" data-price="69">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80" alt="Smartphone Redmi" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Téléphones</div>
-            <h3>Redmi A3</h3>
-            <div class="product-description">Un smartphone pour les besoins essentiels.</div>
-            <div class="price">$69.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Infinix Smart 9" data-category="Téléphones" data-price="75">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?auto=format&fit=crop&w=600&q=80" alt="Smartphone Infinix" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Téléphones</div>
-            <h3>Infinix Smart 9</h3>
-            <div class="product-description">Téléphone adapté aux activités quotidiennes.</div>
-            <div class="price">$75.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Tecno Spark Go 1" data-category="Téléphones" data-price="75">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1605236453806-6ff36851218e?auto=format&fit=crop&w=600&q=80" alt="Smartphone Tecno" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Téléphones</div>
-            <h3>Tecno Spark Go 1</h3>
-            <div class="product-description">Smartphone pour communiquer et naviguer.</div>
-            <div class="price">$75.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="HP 250 G8" data-category="Ordinateurs" data-price="280">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80" alt="Ordinateur portable HP" loading="lazy">
-            <span class="product-badge">Ordinateur</span>
-          </div>
-          <div class="product-body">
-            <div class="product-category">Ordinateurs</div>
-            <h3>HP 250 G8</h3>
-            <div class="product-description">Ordinateur portable pour les études et le travail.</div>
-            <div class="price">$280.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Lenovo ThinkPad T480" data-category="Ordinateurs" data-price="250">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=600&q=80" alt="Ordinateur portable Lenovo" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Ordinateurs</div>
-            <h3>Lenovo ThinkPad T480</h3>
-            <div class="product-description">Portable pour la productivité et les études.</div>
-            <div class="price">$250.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Dell Latitude 5400" data-category="Ordinateurs" data-price="270">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80" alt="Ordinateur portable Dell" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Ordinateurs</div>
-            <h3>Dell Latitude 5400</h3>
-            <div class="product-description">Portable professionnel pour le travail.</div>
-            <div class="price">$270.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Chargeur USB-C 20W" data-category="Accessoires" data-price="12">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?auto=format&fit=crop&w=600&q=80" alt="Chargeur de téléphone" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Accessoires</div>
-            <h3>Chargeur USB-C 20W</h3>
-            <div class="product-description">Chargeur pour appareils compatibles.</div>
-            <div class="price">$12.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Chargeur rapide 33W" data-category="Accessoires" data-price="15">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?auto=format&fit=crop&w=600&q=80" alt="Accessoire de charge" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Accessoires</div>
-            <h3>Chargeur rapide 33W</h3>
-            <div class="product-description">Chargeur rapide pour appareils compatibles.</div>
-            <div class="price">$15.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Câble USB" data-category="Accessoires" data-price="5">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80" alt="Câble USB" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Accessoires</div>
-            <h3>Câble USB</h3>
-            <div class="product-description">Câble pour la recharge et le transfert de données.</div>
-            <div class="price">$5.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Souris sans fil" data-category="Accessoires" data-price="10">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=600&q=80" alt="Souris informatique" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Accessoires</div>
-            <h3>Souris sans fil</h3>
-            <div class="product-description">Souris pratique pour votre ordinateur.</div>
-            <div class="price">$10.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Clavier USB" data-category="Accessoires" data-price="12">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80" alt="Clavier informatique" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Accessoires</div>
-            <h3>Clavier USB</h3>
-            <div class="product-description">Clavier pour ordinateur de bureau ou portable.</div>
-            <div class="price">$12.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Casque audio" data-category="Accessoires" data-price="15">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80" alt="Casque audio" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Accessoires</div>
-            <h3>Casque audio</h3>
-            <div class="product-description">Pour écouter de la musique et des vidéos.</div>
-            <div class="price">$15.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <article class="product" data-name="Clé USB 32GB" data-category="Accessoires" data-price="8">
-          <div class="product-image">
-            <img src="https://images.unsplash.com/photo-1618410320928-25228d811631?auto=format&fit=crop&w=600&q=80" alt="Clé USB" loading="lazy">
-          </div>
-          <div class="product-body">
-            <div class="product-category">Accessoires</div>
-            <h3>Clé USB 32GB</h3>
-            <div class="product-description">Pour sauvegarder et transporter vos fichiers.</div>
-            <div class="price">$8.00</div>
-            <div class="price-bif"></div>
-            <div class="product-actions">
-              <button class="btn btn-dark add-to-cart">🛒 Ajouter</button>
-              <button class="btn btn-whatsapp order-one">Commander</button>
-            </div>
-          </div>
-        </article>
-
-        <div class="empty-results" id="emptyResults">
-          Aucun produit trouvé. Essayez une autre recherche.
-        </div>
-      </div>
-      <p class="cart-note">Les photos sont illustratives et peuvent différer des modèles réellement disponibles. Les prix affichés sont indicatifs et doivent être confirmés avant achat.</p>
-    </section>
-
-    <section class="cart-section" id="panier">
-      <div class="section">
-        <div class="section-heading">
-          <div>
-            <h2>🛒 Mon panier</h2>
-            <p>Vérifiez vos produits avant d'envoyer votre commande.</p>
-          </div>
-        </div>
-
-        <div class="cart-layout">
-          <div class="cart-box">
-            <h3>Produits sélectionnés</h3>
-            <div id="cartItems">
-              <div class="cart-empty">Votre panier est vide. Ajoutez un produit pour commencer.</div>
-            </div>
-          </div>
-
-          <div class="cart-box">
-            <h3>Résumé de la commande</h3>
-            <div>Nombre d'articles : <strong id="cartCount">0</strong></div>
-            <div class="cart-total">
-              Total indicatif :<br>
-              <span id="cartTotal">0 USD / 0 FBu</span>
-            </div>
-            <p class="cart-note">
-              Conversion indicative : 1 USD = 3 000 FBu. Le taux réel peut varier.
-              Les frais de livraison éventuels ne sont pas inclus.
-            </p>
-            <button class="btn btn-whatsapp full-width" id="checkoutBtn">
-              💬 Envoyer la commande sur WhatsApp
-            </button>
-            <button class="btn btn-dark full-width" id="clearCartBtn" style="margin-top:10px">
-              Vider le panier
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-heading">
-        <div>
-          <h2>Pourquoi choisir Daniel Shop ?</h2>
-          <p>Un moyen simple de découvrir nos produits et de nous contacter.</p>
-        </div>
-      </div>
-
-      <div class="features">
-        <div class="feature">
-          <div class="icon">📱</div>
-          <h3>Plusieurs produits</h3>
-          <p>Découvrez des téléphones, des ordinateurs et des accessoires dans une seule boutique.</p>
-        </div>
-        <div class="feature">
-          <div class="icon">💵</div>
-          <h3>Deux monnaies</h3>
-          <p>Consultez les prix en dollars américains et en francs burundais.</p>
-        </div>
-        <div class="feature">
-          <div class="icon">💬</div>
-          <h3>Commande simple</h3>
-          <p>Envoyez votre sélection directement sur WhatsApp pour confirmer votre commande.</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="contact">
-      <div class="contact-banner">
-        <div>
-          <h2>Besoin d'un renseignement ?</h2>
-          <p>Contactez Daniel Shop à Bujumbura, Burundi.<br>
-          Téléphone / WhatsApp : +257 66 12 48 80</p>
-        </div>
-        <a class="btn btn-whatsapp" href="https://wa.me/25766124880" target="_blank" rel="noopener">
-          💬 Écrire sur WhatsApp
-        </a>
-      </div>
+    <section class="cart" id="panier">
+      <h2>🛒 Mon panier</h2>
+      <div id="cartItems"></div>
+      <h3 id="total"></h3>
+      <button class="checkout" onclick="checkout()">
+        Commander sur WhatsApp
+      </button>
+      <button class="clear" onclick="clearCart()">Vider le panier</button>
     </section>
   </main>
 
   <footer>
-    <a href="#" class="logo">DANIEL <span>SHOP</span></a>
+    <h3>👑 DANIEL SHOP</h3>
     <p>📍 Bujumbura, Burundi 🇧🇮</p>
-    <p>📱 WhatsApp : +257 66 12 48 80</p>
-    <p class="footer-muted">© <span id="year"></span> Daniel Shop. Tous droits réservés.</p>
-    <p class="footer-muted">Prix indicatifs en USD et FBu. Disponibilité à confirmer.</p>
+    <p>📱 Téléphones • 💻 Ordinateurs • 🔌 Accessoires</p>
+    <p>Contact WhatsApp :
+      <a href="https://wa.me/25766124880">+257 66 12 48 80</a>
+    </p>
+    <p>© 2026 Daniel Shop — Tous droits réservés.</p>
   </footer>
 
-  <a class="floating-whatsapp" href="https://wa.me/25766124880" target="_blank" rel="noopener" aria-label="Contacter Daniel Shop sur WhatsApp">☎</a>
-
   <script>
-    const WHATSAPP_NUMBER = "25766124880";
     const USD_TO_FBU = 3000;
-    const CART_KEY = "danielShopCart";
+    const WHATSAPP = "25766124880";
 
-    const formatFbu = amount =>
-      Math.round(amount).toLocaleString("fr-FR") + " FBu";
-
-    const formatUsd = amount =>
-      "$" + Number(amount).toFixed(2);
-
-    // Afficher les prix en USD et en francs burundais.
-    document.querySelectorAll(".product").forEach(product => {
-      const price = Number(product.dataset.price);
-      const bifElement = product.querySelector(".price-bif");
-
-      if (bifElement && Number.isFinite(price)) {
-        bifElement.textContent =
-          "≈ " + formatFbu(price * USD_TO_FBU);
+    const products = [
+      {
+        id: 1,
+        name: "Samsung Galaxy A06",
+        category: "Téléphones",
+        price: 79,
+        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 2,
+        name: "iPhone SE 2020",
+        category: "Téléphones",
+        price: 119,
+        image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 3,
+        name: "Redmi A3",
+        category: "Téléphones",
+        price: 69,
+        image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 4,
+        name: "Infinix Smart 9",
+        category: "Téléphones",
+        price: 75,
+        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 5,
+        name: "Tecno Spark Go 1",
+        category: "Téléphones",
+        price: 75,
+        image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 6,
+        name: "HP 250 G8",
+        category: "Ordinateurs",
+        price: 280,
+        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 7,
+        name: "Lenovo ThinkPad T480",
+        category: "Ordinateurs",
+        price: 250,
+        image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 8,
+        name: "Dell Latitude 5400",
+        category: "Ordinateurs",
+        price: 270,
+        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 9,
+        name: "Chargeur USB-C 20W",
+        category: "Accessoires",
+        price: 12,
+        image: "https://placehold.co/600x400/ffffff/172033?text=Chargeur+USB-C"
+      },
+      {
+        id: 10,
+        name: "Chargeur 33W",
+        category: "Accessoires",
+        price: 15,
+        image: "https://placehold.co/600x400/ffffff/172033?text=Chargeur+33W"
+      },
+      {
+        id: 11,
+        name: "Câble USB",
+        category: "Accessoires",
+        price: 5,
+        image: "https://placehold.co/600x400/ffffff/172033?text=CABLE+USB"
+      },
+      {
+        id: 12,
+        name: "Souris sans fil",
+        category: "Accessoires",
+        price: 10,
+        image: "https://placehold.co/600x400/ffffff/172033?text=Souris+sans+fil"
+      },
+      {
+        id: 13,
+        name: "Clavier USB",
+        category: "Accessoires",
+        price: 12,
+        image: "https://placehold.co/600x400/ffffff/172033?text=Clavier+USB"
+      },
+      {
+        id: 14,
+        name: "Casque audio",
+        category: "Accessoires",
+        price: 15,
+        image: "https://placehold.co/600x400/ffffff/172033?text=Casque+audio"
+      },
+      {
+        id: 15,
+        name: "Clé USB 32 Go",
+        category: "Accessoires",
+        price: 8,
+        image: "https://placehold.co/600x400/ffffff/172033?text=CLE+USB+32GB"
       }
-    });
+    ];
 
     let cart = [];
 
-    try {
-      const savedCart = JSON.parse(localStorage.getItem(CART_KEY) || "[]");
-      if (Array.isArray(savedCart)) cart = savedCart;
-    } catch (error) {
-      cart = [];
+    function formatFBU(amount) {
+      return Math.round(amount).toLocaleString("fr-FR") + " FBu";
     }
 
-    // Ne conserver que les articles et quantités valides.
-    cart = cart.filter(item =>
-      item &&
-      typeof item.name === "string" &&
-      Number.isFinite(Number(item.price)) &&
-      Number(item.price) >= 0 &&
-      Number.isInteger(Number(item.quantity)) &&
-      Number(item.quantity) > 0
-    ).map(item => ({
-      name: item.name,
-      price: Number(item.price),
-      quantity: Number(item.quantity)
-    }));
+    function renderProducts() {
+      const search = document.getElementById("search").value.toLowerCase().trim();
+      const category = document.getElementById("category").value;
 
-    const cartItemsElement = document.getElementById("cartItems");
-    const cartCountElement = document.getElementById("cartCount");
-    const cartTotalElement = document.getElementById("cartTotal");
-    const searchInput = document.getElementById("searchInput");
-    const sortSelect = document.getElementById("sortSelect");
-    const productsGrid = document.getElementById("productsGrid");
-    const emptyResults = document.getElementById("emptyResults");
+      const filtered = products.filter(p =>
+        p.name.toLowerCase().includes(search) &&
+        (category === "Tous" || p.category === category)
+      );
 
-    function saveCart() {
-      try {
-        localStorage.setItem(CART_KEY, JSON.stringify(cart));
-      } catch (error) {
-        // Le panier reste utilisable pendant la session.
-      }
-    }
+      const area = document.getElementById("products");
 
-    function renderCart() {
-      cartItemsElement.innerHTML = "";
-
-      if (cart.length === 0) {
-        cartItemsElement.innerHTML =
-          '<div class="cart-empty">Votre panier est vide. Ajoutez un produit pour commencer.</div>';
-        cartCountElement.textContent = "0";
-        cartTotalElement.textContent = "0 USD / 0 FBu";
-        saveCart();
+      if (filtered.length === 0) {
+        area.innerHTML = '<p class="empty">Aucun produit trouvé.</p>';
         return;
       }
 
-      let total = 0;
-      let count = 0;
-
-      cart.forEach((item, index) => {
-        const subtotal = item.price * item.quantity;
-        total += subtotal;
-        count += item.quantity;
-
-        const row = document.createElement("div");
-        row.className = "cart-item";
-
-        const info = document.createElement("div");
-        const name = document.createElement("div");
-        name.className = "cart-item-name";
-        name.textContent = item.name;
-
-        const price = document.createElement("div");
-        price.className = "cart-item-price";
-        price.textContent =
-          formatUsd(item.price) + " / " +
-          formatFbu(item.price * USD_TO_FBU) +
-          " par article";
-
-        info.appendChild(name);
-        info.appendChild(price);
-
-        const controls = document.createElement("div");
-        controls.className = "quantity-controls";
-
-        const minus = document.createElement("button");
-        minus.type = "button";
-        minus.textContent = "−";
-        minus.setAttribute("aria-label", "Diminuer la quantité");
-        minus.addEventListener("click", () => changeQuantity(index, -1));
-
-        const quantity = document.createElement("strong");
-        quantity.textContent = String(item.quantity);
-
-        const plus = document.createElement("button");
-        plus.type = "button";
-        plus.textContent = "+";
-        plus.setAttribute("aria-label", "Augmenter la quantité");
-        plus.addEventListener("click", () => changeQuantity(index, 1));
-
-        const remove = document.createElement("button");
-        remove.type = "button";
-        remove.className = "remove-btn";
-        remove.textContent = "✕";
-        remove.setAttribute("aria-label", "Supprimer cet article");
-        remove.addEventListener("click", () => removeItem(index));
-
-        controls.append(minus, quantity, plus, remove);
-        row.append(info, controls);
-        cartItemsElement.appendChild(row);
-      });
-
-      cartCountElement.textContent = String(count);
-      cartTotalElement.textContent =
-        total.toFixed(2) + " USD / " +
-        formatFbu(total * USD_TO_FBU);
-
-      saveCart();
+      area.innerHTML = filtered.map(p => `
+        <article class="product">
+          <img src="${p.image}" alt="${p.name}" loading="lazy"
+            onerror="this.onerror=null;this.src='https://placehold.co/600x400/ffffff/172033?text=Daniel+Shop'">
+          <div class="product-info">
+            <h3>${p.name}</h3>
+            <p class="price">
+              $${p.price.toFixed(2)}<br>
+              ${formatFBU(p.price * USD_TO_FBU)}
+            </p>
+            <button class="add" onclick="addToCart(${p.id})">
+              Ajouter au panier
+            </button>
+          </div>
+        </article>
+      `).join("");
     }
 
-    function addToCart(product) {
-      const name = product.dataset.name;
-      const price = Number(product.dataset.price);
-      const existing = cart.find(item => item.name === name);
+    function addToCart(id) {
+      const existing = cart.find(item => item.id === id);
 
       if (existing) {
-        existing.quantity += 1;
+        existing.quantity++;
       } else {
-        cart.push({ name, price, quantity: 1 });
+        cart.push({ id: id, quantity: 1 });
       }
 
       renderCart();
     }
 
-    function changeQuantity(index, amount) {
-      if (!cart[index]) return;
-      cart[index].quantity += amount;
-
-      if (cart[index].quantity <= 0) {
-        cart.splice(index, 1);
-      }
-
-      renderCart();
-    }
-
-    function removeItem(index) {
-      cart.splice(index, 1);
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
       renderCart();
     }
 
@@ -1162,32 +424,37 @@
       renderCart();
     }
 
-    document.querySelectorAll(".add-to-cart").forEach(button => {
-      button.addEventListener("click", () => {
-        addToCart(button.closest(".product"));
-      });
-    });
+    function renderCart() {
+      const area = document.getElementById("cartItems");
 
-    document.querySelectorAll(".order-one").forEach(button => {
-      button.addEventListener("click", () => {
-        const product = button.closest(".product");
-        const name = product.dataset.name;
-        const price = Number(product.dataset.price);
+      if (cart.length === 0) {
+        area.innerHTML = '<p class="empty">Votre panier est vide.</p>';
+        document.getElementById("total").textContent = "Total : $0.00";
+        return;
+      }
 
-        const message =
-          "Bonjour Daniel Shop ! Je souhaite commander :\n" +
-          "Produit : " + name + "\n" +
-          "Prix : " + formatUsd(price) + " / " +
-          formatFbu(price * USD_TO_FBU) + "\n" +
-          "Merci de confirmer la disponibilité et le prix.";
+      area.innerHTML = cart.map(item => {
+        const p = products.find(product => product.id === item.id);
+        return `
+          <div class="cart-item">
+            <div>
+              <strong>${p.name}</strong><br>
+              Quantité : ${item.quantity}<br>
+              $${(p.price * item.quantity).toFixed(2)}
+            </div>
+            <button onclick="removeFromCart(${p.id})">Retirer</button>
+          </div>
+        `;
+      }).join("");
 
-        window.open(
-          "https://wa.me/" + WHATSAPP_NUMBER +
-          "?text=" + encodeURIComponent(message),
-          "_blank"
-        );
-      });
-    });
+      const sum = cart.reduce((total, item) => {
+        const p = products.find(product => product.id === item.id);
+        return total + p.price * item.quantity;
+      }, 0);
+
+      document.getElementById("total").innerHTML =
+        `Total : $${sum.toFixed(2)}<br>${formatFBU(sum * USD_TO_FBU)}`;
+    }
 
     function checkout() {
       if (cart.length === 0) {
@@ -1195,95 +462,26 @@
         return;
       }
 
-      let total = 0;
-      let message = "Bonjour Daniel Shop ! Voici ma commande :\n\n";
+      let message = "Bonjour Daniel Shop ! Je souhaite commander :%0A%0A";
+      let sum = 0;
 
       cart.forEach(item => {
-        const subtotal = item.price * item.quantity;
-        total += subtotal;
-        message +=
-          "• " + item.name +
-          " x " + item.quantity +
-          " — " + formatUsd(subtotal) +
-          " / " + formatFbu(subtotal * USD_TO_FBU) + "\n";
+        const p = products.find(product => product.id === item.id);
+        message += "- " + p.name + " x " + item.quantity +
+          " = $" + (p.price * item.quantity).toFixed(2) + "%0A";
+        sum += p.price * item.quantity;
       });
 
-      message +=
-        "\nTOTAL INDICATIF : " + formatUsd(total) +
-        " / " + formatFbu(total * USD_TO_FBU) +
-        "\nTaux indicatif : 1 USD = 3 000 FBu" +
-        "\nLieu : Bujumbura, Burundi" +
-        "\nMerci de confirmer les prix, la disponibilité et la livraison.";
+      message += "%0ATotal : $" + sum.toFixed(2);
+      message += "%0ATotal en FBu : " +
+        Math.round(sum * USD_TO_FBU).toLocaleString("fr-FR");
+      message += "%0A%0AMerci !";
 
-      window.open(
-        "https://wa.me/" + WHATSAPP_NUMBER +
-        "?text=" + encodeURIComponent(message),
-        "_blank"
-      );
+      window.open("https://wa.me/" + WHATSAPP + "?text=" + message, "_blank");
     }
 
-    document.getElementById("checkoutBtn").addEventListener("click", checkout);
-    document.getElementById("clearCartBtn").addEventListener("click", clearCart);
-
-    let activeCategory = "all";
-
-    function filterProducts() {
-      const query = searchInput.value.trim().toLowerCase();
-      const products = Array.from(document.querySelectorAll(".product"));
-
-      products.forEach(product => {
-        const name = (product.dataset.name || "").toLowerCase();
-        const category = product.dataset.category || "";
-        const matchesQuery = name.includes(query);
-        const matchesCategory =
-          activeCategory === "all" || category === activeCategory;
-
-        product.style.display =
-          matchesQuery && matchesCategory ? "flex" : "none";
-      });
-
-      const visibleProducts = products.filter(product =>
-        product.style.display !== "none"
-      );
-
-      const sort = sortSelect.value;
-      visibleProducts.sort((a, b) => {
-        if (sort === "low") {
-          return Number(a.dataset.price) - Number(b.dataset.price);
-        }
-        if (sort === "high") {
-          return Number(b.dataset.price) - Number(a.dataset.price);
-        }
-        if (sort === "name") {
-          return a.dataset.name.localeCompare(b.dataset.name);
-        }
-        return 0;
-      });
-
-      visibleProducts.forEach(product => productsGrid.insertBefore(product, emptyResults));
-      emptyResults.style.display =
-        visibleProducts.length === 0 ? "block" : "none";
-    }
-
-    document.querySelectorAll(".filter-btn").forEach(button => {
-      button.addEventListener("click", () => {
-        document.querySelectorAll(".filter-btn").forEach(btn =>
-          btn.classList.remove("active")
-        );
-
-        button.classList.add("active");
-        activeCategory = button.dataset.category;
-        filterProducts();
-      });
-    });
-
-    searchInput.addEventListener("input", filterProducts);
-    sortSelect.addEventListener("change", filterProducts);
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-
+    renderProducts();
     renderCart();
-    filterProducts();
   </script>
 </body>
 </html>
