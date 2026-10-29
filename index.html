@@ -685,5 +685,259 @@
     Votre boutique de smartphones au Burundi.<br>
     © 2026 Daniel Shop — Site réalisé dans le cadre d'un TP d'e-commerce.
   </footer>
+  
+<script>
+(function () {
+  const PHONE = "25766124880";
+  const STORAGE_KEY = "danielShopCart";
+  let cart = [];
+
+  try {
+    cart = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+    if (!Array.isArray(cart)) cart = [];
+  } catch (e) {
+    cart = [];
+  }
+
+  const style = document.createElement("style");
+  style.textContent = `
+    #ds-cart-button {
+      position: fixed; right: 16px; bottom: 18px; z-index: 9998;
+      background: #ffcc00; color: #06245a; border: 0;
+      border-radius: 40px; padding: 14px 18px; font-weight: 800;
+      font-size: 15px; box-shadow: 0 5px 22px #0003; cursor: pointer;
+    }
+    #ds-cart-count {
+      display: inline-block; background: #e53935; color: white;
+      border-radius: 20px; min-width: 23px; padding: 2px 6px;
+      margin-left: 5px;
+    }
+    #ds-cart-panel {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: #07152dbb; padding: 14px;
+      align-items: center; justify-content: center;
+    }
+    #ds-cart-box {
+      background: white; width: 100%; max-width: 480px;
+      max-height: 85vh; overflow-y: auto; border-radius: 18px;
+      padding: 22px; color: #202b3c;
+    }
+    #ds-cart-box h2 { color: #073b8c; margin-bottom: 12px; }
+    .ds-cart-line {
+      padding: 12px 0; border-bottom: 1px solid #e5e9f0;
+    }
+    .ds-cart-line strong { display: block; margin-bottom: 5px; }
+    .ds-cart-actions {
+      display: flex; align-items: center; flex-wrap: wrap; gap: 8px;
+      margin-top: 8px;
+    }
+    .ds-cart-actions button, .ds-cart-footer button {
+      padding: 9px 12px; border: 0; border-radius: 8px;
+      font-weight: bold; cursor: pointer;
+    }
+    .ds-qty { background: #eaf0fb; color: #073b8c; }
+    .ds-remove { background: #ffebeb; color: #b91c1c; }
+    .ds-cart-footer { margin-top: 18px; display: grid; gap: 10px; }
+    .ds-total { font-size: 22px; font-weight: 900; color: #073b8c; }
+    .ds-order { background: #159447; color: white; }
+    .ds-close { background: #073b8c; color: white; }
+    .ds-cart-note { font-size: 12px; color: #647084; margin-top: 10px; }
+  `;
+  document.head.appendChild(style);
+
+  const button = document.createElement("button");
+  button.id = "ds-cart-button";
+  button.type = "button";
+  button.innerHTML = '🛒 Panier <span id="ds-cart-count">0</span>';
+  document.body.appendChild(button);
+
+  const panel = document.createElement("div");
+  panel.id = "ds-cart-panel";
+  panel.innerHTML = `
+    <div id="ds-cart-box" role="dialog" aria-modal="true"
+         aria-label="Votre panier">
+      <h2>🛒 Mon panier</h2>
+      <div id="ds-cart-items"></div>
+      <div class="ds-cart-footer">
+        <div class="ds-total" id="ds-cart-total">Total : 0 $</div>
+        <button class="ds-order" id="ds-cart-order">
+          Commander sur WhatsApp
+        </button>
+        <button class="ds-close" id="ds-cart-close">
+          Continuer mes achats
+        </button>
+      </div>
+      <p class="ds-cart-note">
+        Les prix sont indicatifs. La commande doit être confirmée
+        par la boutique. Aucun paiement n'est effectué sur ce site.
+      </p>
+    </div>
+  `;
+  document.body.appendChild(panel);
+
+  const itemsBox = panel.querySelector("#ds-cart-items");
+  const totalBox = panel.querySelector("#ds-cart-total");
+  const countBox = button.querySelector("#ds-cart-count");
+
+  function save() {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+    } catch (e) {}
+  }
+
+  function openCart() {
+    render();
+    panel.style.display = "flex";
+  }
+
+  function closeCart() {
+    panel.style.display = "none";
+  }
+
+  function addProduct(name, price) {
+    const found = cart.find(item => item.name === name);
+    if (found) {
+      found.qty += 1;
+    } else {
+      cart.push({ name: name, price: price, qty: 1 });
+    }
+    save();
+    render();
+    button.animate(
+      [{ transform: "scale(1)" }, { transform: "scale(1.08)" },
+       { transform: "scale(1)" }],
+      { duration: 250 }
+    );
+  }
+
+  function render() {
+    const count = cart.reduce((sum, item) => sum + item.qty, 0);
+    const total = cart.reduce((sum, item) =>
+      sum + item.price * item.qty, 0);
+
+    countBox.textContent = count;
+    totalBox.textContent = "Total : $" + total.toFixed(2);
+    itemsBox.replaceChildren();
+
+    if (cart.length === 0) {
+      const empty = document.createElement("p");
+      empty.textContent = "Ton panier est vide. Ajoute un téléphone pour commencer.";
+      itemsBox.appendChild(empty);
+      return;
+    }
+
+    cart.forEach((item, index) => {
+      const line = document.createElement("div");
+      line.className = "ds-cart-line";
+
+      const title = document.createElement("strong");
+      title.textContent = item.name;
+      line.appendChild(title);
+
+      const price = document.createElement("div");
+      price.textContent =
+        "$" + item.price.toFixed(2) + " × " + item.qty +
+        " = $" + (item.price * item.qty).toFixed(2);
+      line.appendChild(price);
+
+      const actions = document.createElement("div");
+      actions.className = "ds-cart-actions";
+
+      function makeButton(label, className, action) {
+        const b = document.createElement("button");
+        b.type = "button";
+        b.className = className;
+        b.textContent = label;
+        b.addEventListener("click", action);
+        actions.appendChild(b);
+      }
+
+      makeButton("−", "ds-qty", function () {
+        item.qty -= 1;
+        if (item.qty <= 0) cart.splice(index, 1);
+        save();
+        render();
+      });
+
+      makeButton("+", "ds-qty", function () {
+        item.qty += 1;
+        save();
+        render();
+      });
+
+      makeButton("Retirer", "ds-remove", function () {
+        cart.splice(index, 1);
+        save();
+        render();
+      });
+
+      line.appendChild(actions);
+      itemsBox.appendChild(line);
+    });
+  }
+
+  document.querySelectorAll(".product").forEach(product => {
+    const nameElement = product.querySelector("h3");
+    const priceElement = product.querySelector(".price");
+    const actions = product.querySelector(".product-actions");
+
+    if (!nameElement || !priceElement || !actions) return;
+
+    const name = nameElement.textContent.trim();
+    const priceText = priceElement.textContent.trim();
+    const match = priceText.match(/(\d+(?:[.,]\d+)?)/);
+
+    if (!match || !priceText.includes("$")) return;
+
+    const price = Number(match[1].replace(",", "."));
+    if (!Number.isFinite(price) || price <= 0) return;
+
+    const addButton = document.createElement("button");
+    addButton.type = "button";
+    addButton.className = "button";
+    addButton.style.cssText =
+      "background:#ffcc00;color:#06245a;border:0;cursor:pointer;grid-column:1/-1;";
+    addButton.textContent = "🛒 Ajouter au panier";
+    addButton.addEventListener("click", function () {
+      addProduct(name, price);
+    });
+
+    actions.appendChild(addButton);
+  });
+
+  button.addEventListener("click", openCart);
+  panel.querySelector("#ds-cart-close").addEventListener("click", closeCart);
+
+  panel.addEventListener("click", function (event) {
+    if (event.target === panel) closeCart();
+  });
+
+  panel.querySelector("#ds-cart-order").addEventListener("click", function () {
+    if (cart.length === 0) {
+      alert("Ton panier est vide. Ajoute d'abord un téléphone.");
+      return;
+    }
+
+    const total = cart.reduce((sum, item) =>
+      sum + item.price * item.qty, 0);
+
+    let message = "Bonjour Daniel Shop ! Je souhaite commander :\n\n";
+    cart.forEach(item => {
+      message += "- " + item.name + " x" + item.qty +
+        " : $" + (item.price * item.qty).toFixed(2) + "\n";
+    });
+    message += "\nTotal indicatif : $" + total.toFixed(2);
+    message += "\nMerci de confirmer la disponibilité et le prix.";
+
+    window.open(
+      "https://wa.me/" + PHONE + "?text=" + encodeURIComponent(message),
+      "_blank"
+    );
+  });
+
+  render();
+})();
+</script>
+
 </body>
 </html>
