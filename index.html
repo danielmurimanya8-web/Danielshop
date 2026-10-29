@@ -3,99 +3,78 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Shop | Boutique en ligne</title>
-  <meta name="description" content="Daniel Shop, téléphones, ordinateurs et accessoires à Bujumbura, Burundi.">
-  <style>
-    :root {
-      --navy: #101827;
-      --gold: #e8b84c;
-      --light: #f4f6f9;
-      --white: #ffffff;
-      --text: #172033;
-    }
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DANIEL SHOP | Boutique en ligne</title>
 
+  <style>
     * { box-sizing: border-box; }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: var(--light);
-      color: var(--text);
+      background: #f3f5f8;
+      color: #172033;
     }
 
     header {
-      background: var(--navy);
+      background: #101827;
       color: white;
-      padding: 22px 16px;
       text-align: center;
-      border-bottom: 3px solid var(--gold);
+      padding: 22px 12px;
+      border-bottom: 4px solid #e8b84c;
     }
 
-    header h1 {
-      margin: 0 0 8px;
-      color: var(--gold);
-      font-size: 30px;
-    }
-
-    header p { margin: 6px 0; }
+    header h1 { color: #e8b84c; margin: 0 0 8px; }
 
     .hero {
-      background: linear-gradient(135deg, #101827, #263650);
-      color: white;
-      padding: 35px 18px;
       text-align: center;
+      padding: 35px 15px;
+      background: #202e45;
+      color: white;
     }
 
-    .hero h2 { color: var(--gold); }
+    .hero h2 { color: #e8b84c; }
 
     .hero a {
       display: inline-block;
-      background: var(--gold);
+      padding: 12px 18px;
+      background: #e8b84c;
       color: #101827;
-      padding: 12px 20px;
-      border-radius: 8px;
       text-decoration: none;
+      border-radius: 8px;
       font-weight: bold;
-      margin-top: 10px;
     }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 20px 14px;
-    }
+    main { max-width: 1100px; margin: auto; padding: 16px; }
 
     .tools {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 10px;
       margin-bottom: 20px;
     }
 
     input, select {
       padding: 12px;
-      border: 1px solid #ccd2dc;
+      border: 1px solid #ccc;
       border-radius: 8px;
-      background: white;
       font-size: 15px;
+      background: white;
     }
 
     #search { flex: 1; min-width: 180px; }
 
-    h2.section-title { margin-top: 28px; }
-
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(145px, 1fr));
-      gap: 15px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
     }
 
     .product {
       background: white;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
-      box-shadow: 0 3px 12px #00000012;
+      box-shadow: 0 2px 8px #00000012;
       display: flex;
       flex-direction: column;
     }
@@ -104,8 +83,8 @@
       width: 100%;
       height: 155px;
       object-fit: contain;
-      padding: 8px;
-      background: #fff;
+      background: white;
+      padding: 6px;
     }
 
     .product-info {
@@ -115,84 +94,68 @@
       flex: 1;
     }
 
-    .product h3 {
-      font-size: 16px;
-      margin: 0 0 8px;
-    }
+    .product h3 { font-size: 15px; margin: 0 0 8px; }
 
     .price {
-      color: #997017;
+      color: #956d12;
       font-weight: bold;
-      line-height: 1.6;
-      margin: 0 0 12px;
+      line-height: 1.7;
     }
 
     button {
-      cursor: pointer;
       border: 0;
       border-radius: 7px;
       padding: 11px;
       font-weight: bold;
-      font-size: 14px;
+      cursor: pointer;
     }
 
     .add {
-      background: var(--navy);
+      background: #101827;
       color: white;
       margin-top: auto;
     }
 
     .cart {
-      margin-top: 30px;
-      padding: 18px;
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 3px 12px #00000010;
+      margin-top: 25px;
+      padding: 16px;
+      border-radius: 10px;
     }
 
     .cart-item {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 8px;
-      padding: 10px 0;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #ddd;
+      padding: 12px 0;
     }
 
-    .cart-item button {
-      background: #fce4e4;
-      color: #a00;
-      padding: 7px 10px;
-    }
+    .remove { background: #ffe2e2; color: #9b1111; }
 
     .checkout {
+      width: 100%;
+      margin-top: 15px;
       background: #168b49;
       color: white;
-      width: 100%;
-      margin-top: 14px;
       font-size: 16px;
     }
 
-    .clear {
-      background: #e9edf3;
-      color: #182033;
-      margin-top: 10px;
-    }
+    .clear { margin-top: 10px; background: #e5e8ed; }
 
     footer {
       margin-top: 30px;
-      background: var(--navy);
+      padding: 25px 12px;
+      background: #101827;
       color: white;
       text-align: center;
-      padding: 25px 12px;
     }
 
-    footer a { color: var(--gold); }
+    footer a { color: #e8b84c; }
 
-    .empty { color: #697386; }
-
-    @media (min-width: 700px) {
-      .products { grid-template-columns: repeat(4, 1fr); }
+    @media (min-width: 650px) {
+      .products { grid-template-columns: repeat(4, minmax(0, 1fr)); }
       .product img { height: 190px; }
     }
   </style>
@@ -207,16 +170,17 @@
 
   <section class="hero">
     <h2>Bienvenue chez Daniel Shop !</h2>
-    <p>Téléphones, ordinateurs et accessoires au même endroit.</p>
-    <p>Des produits pour faciliter votre quotidien.</p>
-    <a href="#boutique">Découvrir les produits</a>
+    <p>Téléphones, ordinateurs et accessoires.</p>
+    <p>Découvrez nos produits et commandez sur WhatsApp.</p>
+    <a href="#boutique">Voir les produits</a>
   </section>
 
-  <main class="container" id="boutique">
-    <h2 class="section-title">🛍️ Notre boutique</h2>
+  <main id="boutique">
+    <h2>🛍️ Nos produits</h2>
 
     <div class="tools">
-      <input id="search" type="search" placeholder="Rechercher un produit..."
+      <input id="search" type="search"
+        placeholder="Rechercher un produit..."
         oninput="renderProducts()">
 
       <select id="category" onchange="renderProducts()">
@@ -229,10 +193,10 @@
 
     <div class="products" id="products"></div>
 
-    <section class="cart" id="panier">
+    <section class="cart">
       <h2>🛒 Mon panier</h2>
       <div id="cartItems"></div>
-      <h3 id="total"></h3>
+      <h3 id="total">Total : $0.00</h3>
       <button class="checkout" onclick="checkout()">
         Commander sur WhatsApp
       </button>
@@ -243,17 +207,16 @@
   <footer>
     <h3>👑 DANIEL SHOP</h3>
     <p>📍 Bujumbura, Burundi 🇧🇮</p>
-    <p>📱 Téléphones • 💻 Ordinateurs • 🔌 Accessoires</p>
-    <p>Contact WhatsApp :
-      <a href="https://wa.me/25766124880">+257 66 12 48 80</a>
-    </p>
-    <p>© 2026 Daniel Shop — Tous droits réservés.</p>
+    <p>Téléphones • Ordinateurs • Accessoires</p>
+    <p>WhatsApp : <a href="https://wa.me/25766124880">+257 66 12 48 80</a></p>
+    <p>© 2026 Daniel Shop</p>
   </footer>
 
   <script>
     const USD_TO_FBU = 3000;
     const WHATSAPP = "25766124880";
 
+    // Les liens ci-dessous affichent les photos des produits.
     const products = [
       {
         id: 1,
@@ -316,49 +279,49 @@
         name: "Chargeur USB-C 20W",
         category: "Accessoires",
         price: 12,
-        image: "https://placehold.co/600x400/ffffff/172033?text=Chargeur+USB-C"
+        image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 10,
         name: "Chargeur 33W",
         category: "Accessoires",
         price: 15,
-        image: "https://placehold.co/600x400/ffffff/172033?text=Chargeur+33W"
+        image: "https://images.unsplash.com/photo-1591290619762-c5886e7e5e5b?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 11,
         name: "Câble USB",
         category: "Accessoires",
         price: 5,
-        image: "https://placehold.co/600x400/ffffff/172033?text=CABLE+USB"
+        image: "https://images.unsplash.com/photo-1610438235354-a6ae5528385c?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 12,
         name: "Souris sans fil",
         category: "Accessoires",
         price: 10,
-        image: "https://placehold.co/600x400/ffffff/172033?text=Souris+sans+fil"
+        image: "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 13,
         name: "Clavier USB",
         category: "Accessoires",
         price: 12,
-        image: "https://placehold.co/600x400/ffffff/172033?text=Clavier+USB"
+        image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 14,
         name: "Casque audio",
         category: "Accessoires",
         price: 15,
-        image: "https://placehold.co/600x400/ffffff/172033?text=Casque+audio"
+        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
       },
       {
         id: 15,
         name: "Clé USB 32 Go",
         category: "Accessoires",
         price: 8,
-        image: "https://placehold.co/600x400/ffffff/172033?text=CLE+USB+32GB"
+        image: "https://images.unsplash.com/photo-1618410320928-25228d811631?auto=format&fit=crop&w=600&q=80"
       }
     ];
 
@@ -369,7 +332,8 @@
     }
 
     function renderProducts() {
-      const search = document.getElementById("search").value.toLowerCase().trim();
+      const search = document.getElementById("search").value
+        .toLowerCase().trim();
       const category = document.getElementById("category").value;
 
       const filtered = products.filter(p =>
@@ -379,14 +343,17 @@
 
       const area = document.getElementById("products");
 
-      if (filtered.length === 0) {
-        area.innerHTML = '<p class="empty">Aucun produit trouvé.</p>';
+      if (!filtered.length) {
+        area.innerHTML = "<p>Aucun produit trouvé.</p>";
         return;
       }
 
       area.innerHTML = filtered.map(p => `
         <article class="product">
-          <img src="${p.image}" alt="${p.name}" loading="lazy"
+          <img
+            src="${p.image}"
+            alt="${p.name}"
+            loading="lazy"
             onerror="this.onerror=null;this.src='https://placehold.co/600x400/ffffff/172033?text=Daniel+Shop'">
           <div class="product-info">
             <h3>${p.name}</h3>
@@ -403,10 +370,10 @@
     }
 
     function addToCart(id) {
-      const existing = cart.find(item => item.id === id);
+      const item = cart.find(p => p.id === id);
 
-      if (existing) {
-        existing.quantity++;
+      if (item) {
+        item.quantity++;
       } else {
         cart.push({ id: id, quantity: 1 });
       }
@@ -427,14 +394,15 @@
     function renderCart() {
       const area = document.getElementById("cartItems");
 
-      if (cart.length === 0) {
-        area.innerHTML = '<p class="empty">Votre panier est vide.</p>';
+      if (!cart.length) {
+        area.innerHTML = "<p>Votre panier est vide.</p>";
         document.getElementById("total").textContent = "Total : $0.00";
         return;
       }
 
       area.innerHTML = cart.map(item => {
         const p = products.find(product => product.id === item.id);
+
         return `
           <div class="cart-item">
             <div>
@@ -442,14 +410,15 @@
               Quantité : ${item.quantity}<br>
               $${(p.price * item.quantity).toFixed(2)}
             </div>
-            <button onclick="removeFromCart(${p.id})">Retirer</button>
+            <button class="remove"
+              onclick="removeFromCart(${p.id})">Retirer</button>
           </div>
         `;
       }).join("");
 
       const sum = cart.reduce((total, item) => {
-        const p = products.find(product => product.id === item.id);
-        return total + p.price * item.quantity;
+        return total +
+          products.find(p => p.id === item.id).price * item.quantity;
       }, 0);
 
       document.getElementById("total").innerHTML =
@@ -457,27 +426,31 @@
     }
 
     function checkout() {
-      if (cart.length === 0) {
+      if (!cart.length) {
         alert("Votre panier est vide. Ajoutez d'abord un produit.");
         return;
       }
 
-      let message = "Bonjour Daniel Shop ! Je souhaite commander :%0A%0A";
+      let message = "Bonjour Daniel Shop ! Je souhaite commander :\n\n";
       let sum = 0;
 
       cart.forEach(item => {
         const p = products.find(product => product.id === item.id);
         message += "- " + p.name + " x " + item.quantity +
-          " = $" + (p.price * item.quantity).toFixed(2) + "%0A";
+          " = $" + (p.price * item.quantity).toFixed(2) + "\n";
         sum += p.price * item.quantity;
       });
 
-      message += "%0ATotal : $" + sum.toFixed(2);
-      message += "%0ATotal en FBu : " +
+      message += "\nTotal : $" + sum.toFixed(2);
+      message += "\nTotal en FBu : " +
         Math.round(sum * USD_TO_FBU).toLocaleString("fr-FR");
-      message += "%0A%0AMerci !";
+      message += "\nMerci !";
 
-      window.open("https://wa.me/" + WHATSAPP + "?text=" + message, "_blank");
+      window.open(
+        "https://wa.me/" + WHATSAPP + "?text=" +
+        encodeURIComponent(message),
+        "_blank"
+      );
     }
 
     renderProducts();
