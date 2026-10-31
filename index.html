@@ -2,459 +2,643 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DANIEL SHOP | Boutique en ligne</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101827">
+<title>DANIEL SHOP | Boutique en ligne</title>
 
-  <style>
-    * { box-sizing: border-box; }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f3f5f8;
-      color: #172033;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    header {
-      background: #101827;
-      color: white;
-      text-align: center;
-      padding: 22px 12px;
-      border-bottom: 4px solid #e8b84c;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f5f8;
+  color: #172033;
+}
 
-    header h1 { color: #e8b84c; margin: 0 0 8px; }
+header {
+  background: #101827;
+  color: white;
+  text-align: center;
+  padding: 22px 12px;
+  border-bottom: 4px solid #e8b84c;
+}
 
-    .hero {
-      text-align: center;
-      padding: 35px 15px;
-      background: #202e45;
-      color: white;
-    }
+header h1 {
+  color: #e8b84c;
+  margin: 0 0 8px;
+  font-size: 29px;
+  letter-spacing: 2px;
+}
 
-    .hero h2 { color: #e8b84c; }
+header p {
+  margin: 6px;
+}
 
-    .hero a {
-      display: inline-block;
-      padding: 12px 18px;
-      background: #e8b84c;
-      color: #101827;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
+/* GRANDE IMAGE D'ACCUEIL */
+.hero {
+  position: relative;
+  min-height: 470px;
+  padding: 85px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
 
-    main { max-width: 1100px; margin: auto; padding: 16px; }
+  background:
+    linear-gradient(
+      120deg,
+      rgba(5, 14, 32, 0.88),
+      rgba(5, 14, 32, 0.58),
+      rgba(5, 14, 32, 0.85)
+    ),
+    url("https://images.unsplash.com/photo-1498049794561-7780e7231661?auto=format&fit=crop&w=1800&q=90");
 
-    .tools {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    input, select {
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      font-size: 15px;
-      background: white;
-    }
+.hero-content {
+  max-width: 850px;
+  position: relative;
+  z-index: 1;
+}
 
-    #search { flex: 1; min-width: 180px; }
+.hero h2 {
+  color: #ffcc00;
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1.2;
+  margin: 0 0 20px;
+  text-shadow: 0 3px 10px #000;
+}
 
-    .products {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
+.hero p {
+  font-size: 19px;
+  line-height: 1.7;
+  margin: 12px 0;
+}
 
-    .product {
-      background: white;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px #00000012;
-      display: flex;
-      flex-direction: column;
-    }
+.hero a {
+  display: inline-block;
+  margin-top: 22px;
+  padding: 16px 28px;
+  background: #ffcc00;
+  color: #101827;
+  text-decoration: none;
+  border-radius: 9px;
+  font-weight: bold;
+  transition: 0.3s;
+  box-shadow: 0 5px 15px #0005;
+}
 
-    .product img {
-      width: 100%;
-      height: 155px;
-      object-fit: contain;
-      background: white;
-      padding: 6px;
-    }
+.hero a:hover {
+  background: white;
+  transform: translateY(-3px);
+}
 
-    .product-info {
-      padding: 12px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
+/* BOUTIQUE */
+main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 22px 16px;
+}
 
-    .product h3 { font-size: 15px; margin: 0 0 8px; }
+main > h2 {
+  color: #101827;
+  border-left: 5px solid #e8b84c;
+  padding-left: 12px;
+  margin-bottom: 22px;
+}
 
-    .price {
-      color: #956d12;
-      font-weight: bold;
-      line-height: 1.7;
-    }
+.tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
 
-    button {
-      border: 0;
-      border-radius: 7px;
-      padding: 11px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+input, select {
+  padding: 13px;
+  border: 1px solid #d5dbe5;
+  border-radius: 8px;
+  font-size: 15px;
+  background: white;
+}
 
-    .add {
-      background: #101827;
-      color: white;
-      margin-top: auto;
-    }
+#search {
+  flex: 1;
+  min-width: 180px;
+}
 
-    .cart {
-      background: white;
-      margin-top: 25px;
-      padding: 16px;
-      border-radius: 10px;
-    }
+#category {
+  min-width: 180px;
+}
 
-    .cart-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid #ddd;
-      padding: 12px 0;
-    }
+.products {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+}
 
-    .remove { background: #ffe2e2; color: #9b1111; }
+.product {
+  background: white;
+  border-radius: 13px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px #00000012;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
 
-    .checkout {
-      width: 100%;
-      margin-top: 15px;
-      background: #168b49;
-      color: white;
-      font-size: 16px;
-    }
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 22px #00000020;
+}
 
-    .clear { margin-top: 10px; background: #e5e8ed; }
+.product img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  background: #fff;
+  padding: 9px;
+}
 
-    footer {
-      margin-top: 30px;
-      padding: 25px 12px;
-      background: #101827;
-      color: white;
-      text-align: center;
-    }
+.product-info {
+  padding: 13px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 
-    footer a { color: #e8b84c; }
+.product h3 {
+  font-size: 15px;
+  margin: 0 0 9px;
+  color: #101827;
+}
 
-    @media (min-width: 650px) {
-      .products { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-      .product img { height: 190px; }
-    }
-  </style>
+.price {
+  color: #956d12;
+  font-weight: bold;
+  line-height: 1.8;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add {
+  background: #101827;
+  color: white;
+  margin-top: auto;
+  transition: 0.2s;
+}
+
+.add:hover {
+  background: #e8b84c;
+  color: #101827;
+}
+
+/* PANIER */
+.cart {
+  background: white;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 13px;
+  box-shadow: 0 3px 12px #00000010;
+}
+
+.cart h2 {
+  color: #101827;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #ddd;
+  padding: 13px 0;
+}
+
+.remove {
+  background: #ffe2e2;
+  color: #9b1111;
+}
+
+.checkout {
+  width: 100%;
+  margin-top: 15px;
+  background: #168b49;
+  color: white;
+  font-size: 16px;
+}
+
+.clear {
+  width: 100%;
+  margin-top: 10px;
+  background: #e5e8ed;
+  color: #172033;
+}
+
+/* PIED DE PAGE */
+footer {
+  margin-top: 35px;
+  padding: 30px 12px;
+  background: #101827;
+  color: white;
+  text-align: center;
+  border-top: 4px solid #e8b84c;
+}
+
+footer h3 {
+  color: #e8b84c;
+  font-size: 23px;
+}
+
+footer a {
+  color: #ffcc00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+@media (min-width: 650px) {
+  .products {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .product img {
+    height: 190px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 420px;
+    padding: 65px 18px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero h2 {
+    font-size: 34px;
+  }
+
+  header h1 {
+    font-size: 25px;
+  }
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <h1>👑 DANIEL SHOP</h1>
-    <p>Votre boutique en ligne</p>
-    <p>📍 Bujumbura, Burundi 🇧🇮</p>
-  </header>
 
-  <section class="hero">
+<header>
+  <h1>👑 DANIEL SHOP</h1>
+  <p>Votre boutique en ligne</p>
+  <p>📍 Bujumbura, Burundi 🇧🇮</p>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
     <h2>Bienvenue chez Daniel Shop !</h2>
-    <p>Téléphones, ordinateurs et accessoires.</p>
-    <p>Découvrez nos produits et commandez sur WhatsApp.</p>
-    <a href="#boutique">Voir les produits</a>
+
+    <p>
+      Téléphones, ordinateurs et accessoires.
+    </p>
+
+    <p>
+      Découvrez nos produits et commandez facilement
+      sur WhatsApp.
+    </p>
+
+    <a href="#boutique">Découvrir nos produits</a>
+  </div>
+</section>
+
+<main id="boutique">
+
+  <h2>🛍️ Nos produits</h2>
+
+  <div class="tools">
+    <input
+      id="search"
+      type="search"
+      placeholder="Rechercher un produit..."
+      oninput="renderProducts()">
+
+    <select id="category" onchange="renderProducts()">
+      <option value="Tous">Toutes les catégories</option>
+      <option value="Téléphones">Téléphones</option>
+      <option value="Ordinateurs">Ordinateurs</option>
+      <option value="Accessoires">Accessoires</option>
+    </select>
+  </div>
+
+  <div class="products" id="products"></div>
+
+  <section class="cart">
+    <h2>🛒 Mon panier</h2>
+
+    <div id="cartItems"></div>
+
+    <h3 id="total">Total : $0.00</h3>
+
+    <button class="checkout" onclick="checkout()">
+      Commander sur WhatsApp
+    </button>
+
+    <button class="clear" onclick="clearCart()">
+      Vider le panier
+    </button>
   </section>
 
-  <main id="boutique">
-    <h2>🛍️ Nos produits</h2>
+</main>
 
-    <div class="tools">
-      <input id="search" type="search"
-        placeholder="Rechercher un produit..."
-        oninput="renderProducts()">
+<footer>
+  <h3>👑 DANIEL SHOP</h3>
+  <p>📍 Bujumbura, Burundi 🇧🇮</p>
+  <p>Téléphones • Ordinateurs • Accessoires</p>
 
-      <select id="category" onchange="renderProducts()">
-        <option value="Tous">Toutes les catégories</option>
-        <option value="Téléphones">Téléphones</option>
-        <option value="Ordinateurs">Ordinateurs</option>
-        <option value="Accessoires">Accessoires</option>
-      </select>
-    </div>
+  <p>
+    WhatsApp :
+    <a href="https://wa.me/25766124880">
+      +257 66 12 48 80
+    </a>
+  </p>
 
-    <div class="products" id="products"></div>
+  <p>© 2026 Daniel Shop</p>
+  <p>La technologie à portée de main.</p>
+</footer>
 
-    <section class="cart">
-      <h2>🛒 Mon panier</h2>
-      <div id="cartItems"></div>
-      <h3 id="total">Total : $0.00</h3>
-      <button class="checkout" onclick="checkout()">
-        Commander sur WhatsApp
-      </button>
-      <button class="clear" onclick="clearCart()">Vider le panier</button>
-    </section>
-  </main>
+<script>
+const USD_TO_FBU = 3000;
+const WHATSAPP = "25766124880";
 
-  <footer>
-    <h3>👑 DANIEL SHOP</h3>
-    <p>📍 Bujumbura, Burundi 🇧🇮</p>
-    <p>Téléphones • Ordinateurs • Accessoires</p>
-    <p>WhatsApp : <a href="https://wa.me/25766124880">+257 66 12 48 80</a></p>
-    <p>© 2026 Daniel Shop</p>
-  </footer>
+const products = [
+  {
+    id: 1,
+    name: "Samsung Galaxy A06",
+    category: "Téléphones",
+    price: 79,
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 2,
+    name: "iPhone SE 2020",
+    category: "Téléphones",
+    price: 119,
+    image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 3,
+    name: "Redmi A3",
+    category: "Téléphones",
+    price: 69,
+    image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 4,
+    name: "Infinix Smart 9",
+    category: "Téléphones",
+    price: 75,
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 5,
+    name: "Tecno Spark Go 1",
+    category: "Téléphones",
+    price: 75,
+    image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 6,
+    name: "HP 250 G8",
+    category: "Ordinateurs",
+    price: 280,
+    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 7,
+    name: "Lenovo ThinkPad T480",
+    category: "Ordinateurs",
+    price: 250,
+    image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 8,
+    name: "Dell Latitude 5400",
+    category: "Ordinateurs",
+    price: 270,
+    image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 9,
+    name: "Chargeur USB-C 20W",
+    category: "Accessoires",
+    price: 12,
+    image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 10,
+    name: "Chargeur 33W",
+    category: "Accessoires",
+    price: 15,
+    image: "https://images.unsplash.com/photo-1591290619762-c5886e7e5e5b?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 11,
+    name: "Câble USB",
+    category: "Accessoires",
+    price: 5,
+    image: "https://images.unsplash.com/photo-1610438235354-a6ae5528385c?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 12,
+    name: "Souris sans fil",
+    category: "Accessoires",
+    price: 10,
+    image: "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 13,
+    name: "Clavier USB",
+    category: "Accessoires",
+    price: 12,
+    image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 14,
+    name: "Casque audio",
+    category: "Accessoires",
+    price: 15,
+    image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
+  },
+  {
+    id: 15,
+    name: "Clé USB 32 Go",
+    category: "Accessoires",
+    price: 8,
+    image: "https://images.unsplash.com/photo-1618410320928-25228d811631?auto=format&fit=crop&w=600&q=80"
+  }
+];
 
-  <script>
-    const USD_TO_FBU = 3000;
-    const WHATSAPP = "25766124880";
+let cart = [];
 
-    // Les liens ci-dessous affichent les photos des produits.
-    const products = [
-      {
-        id: 1,
-        name: "Samsung Galaxy A06",
-        category: "Téléphones",
-        price: 79,
-        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 2,
-        name: "iPhone SE 2020",
-        category: "Téléphones",
-        price: 119,
-        image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 3,
-        name: "Redmi A3",
-        category: "Téléphones",
-        price: 69,
-        image: "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 4,
-        name: "Infinix Smart 9",
-        category: "Téléphones",
-        price: 75,
-        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 5,
-        name: "Tecno Spark Go 1",
-        category: "Téléphones",
-        price: 75,
-        image: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 6,
-        name: "HP 250 G8",
-        category: "Ordinateurs",
-        price: 280,
-        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 7,
-        name: "Lenovo ThinkPad T480",
-        category: "Ordinateurs",
-        price: 250,
-        image: "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 8,
-        name: "Dell Latitude 5400",
-        category: "Ordinateurs",
-        price: 270,
-        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 9,
-        name: "Chargeur USB-C 20W",
-        category: "Accessoires",
-        price: 12,
-        image: "https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 10,
-        name: "Chargeur 33W",
-        category: "Accessoires",
-        price: 15,
-        image: "https://images.unsplash.com/photo-1591290619762-c5886e7e5e5b?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 11,
-        name: "Câble USB",
-        category: "Accessoires",
-        price: 5,
-        image: "https://images.unsplash.com/photo-1610438235354-a6ae5528385c?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 12,
-        name: "Souris sans fil",
-        category: "Accessoires",
-        price: 10,
-        image: "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 13,
-        name: "Clavier USB",
-        category: "Accessoires",
-        price: 12,
-        image: "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 14,
-        name: "Casque audio",
-        category: "Accessoires",
-        price: 15,
-        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=600&q=80"
-      },
-      {
-        id: 15,
-        name: "Clé USB 32 Go",
-        category: "Accessoires",
-        price: 8,
-        image: "https://images.unsplash.com/photo-1618410320928-25228d811631?auto=format&fit=crop&w=600&q=80"
-      }
-    ];
+function formatFBU(amount) {
+  return Math.round(amount).toLocaleString("fr-FR") + " FBu";
+}
 
-    let cart = [];
+function renderProducts() {
+  const search = document.getElementById("search")
+    .value.toLowerCase().trim();
 
-    function formatFBU(amount) {
-      return Math.round(amount).toLocaleString("fr-FR") + " FBu";
-    }
+  const category = document.getElementById("category").value;
 
-    function renderProducts() {
-      const search = document.getElementById("search").value
-        .toLowerCase().trim();
-      const category = document.getElementById("category").value;
+  const filtered = products.filter(p =>
+    p.name.toLowerCase().includes(search) &&
+    (category === "Tous" || p.category === category)
+  );
 
-      const filtered = products.filter(p =>
-        p.name.toLowerCase().includes(search) &&
-        (category === "Tous" || p.category === category)
-      );
+  const area = document.getElementById("products");
 
-      const area = document.getElementById("products");
+  if (!filtered.length) {
+    area.innerHTML = "<p>Aucun produit trouvé.</p>";
+    return;
+  }
 
-      if (!filtered.length) {
-        area.innerHTML = "<p>Aucun produit trouvé.</p>";
-        return;
-      }
+  area.innerHTML = filtered.map(p => `
+    <article class="product">
+      <img
+        src="${p.image}"
+        alt="${p.name}"
+        loading="lazy"
+        onerror="this.onerror=null;this.src='https://placehold.co/600x400/ffffff/172033?text=Daniel+Shop'">
 
-      area.innerHTML = filtered.map(p => `
-        <article class="product">
-          <img
-            src="${p.image}"
-            alt="${p.name}"
-            loading="lazy"
-            onerror="this.onerror=null;this.src='https://placehold.co/600x400/ffffff/172033?text=Daniel+Shop'">
-          <div class="product-info">
-            <h3>${p.name}</h3>
-            <p class="price">
-              $${p.price.toFixed(2)}<br>
-              ${formatFBU(p.price * USD_TO_FBU)}
-            </p>
-            <button class="add" onclick="addToCart(${p.id})">
-              Ajouter au panier
-            </button>
-          </div>
-        </article>
-      `).join("");
-    }
+      <div class="product-info">
+        <h3>${p.name}</h3>
 
-    function addToCart(id) {
-      const item = cart.find(p => p.id === id);
+        <p class="price">
+          $${p.price.toFixed(2)}<br>
+          ${formatFBU(p.price * USD_TO_FBU)}
+        </p>
 
-      if (item) {
-        item.quantity++;
-      } else {
-        cart.push({ id: id, quantity: 1 });
-      }
+        <button class="add" onclick="addToCart(${p.id})">
+          Ajouter au panier
+        </button>
+      </div>
+    </article>
+  `).join("");
+}
 
-      renderCart();
-    }
+function addToCart(id) {
+  const item = cart.find(p => p.id === id);
 
-    function removeFromCart(id) {
-      cart = cart.filter(item => item.id !== id);
-      renderCart();
-    }
+  if (item) {
+    item.quantity++;
+  } else {
+    cart.push({ id: id, quantity: 1 });
+  }
 
-    function clearCart() {
-      cart = [];
-      renderCart();
-    }
+  renderCart();
+}
 
-    function renderCart() {
-      const area = document.getElementById("cartItems");
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  renderCart();
+}
 
-      if (!cart.length) {
-        area.innerHTML = "<p>Votre panier est vide.</p>";
-        document.getElementById("total").textContent = "Total : $0.00";
-        return;
-      }
+function clearCart() {
+  cart = [];
+  renderCart();
+}
 
-      area.innerHTML = cart.map(item => {
-        const p = products.find(product => product.id === item.id);
+function renderCart() {
+  const area = document.getElementById("cartItems");
 
-        return `
-          <div class="cart-item">
-            <div>
-              <strong>${p.name}</strong><br>
-              Quantité : ${item.quantity}<br>
-              $${(p.price * item.quantity).toFixed(2)}
-            </div>
-            <button class="remove"
-              onclick="removeFromCart(${p.id})">Retirer</button>
-          </div>
-        `;
-      }).join("");
+  if (!cart.length) {
+    area.innerHTML = "<p>Votre panier est vide.</p>";
+    document.getElementById("total").textContent =
+      "Total : $0.00";
+    return;
+  }
 
-      const sum = cart.reduce((total, item) => {
-        return total +
-          products.find(p => p.id === item.id).price * item.quantity;
-      }, 0);
+  area.innerHTML = cart.map(item => {
+    const p = products.find(product => product.id === item.id);
 
-      document.getElementById("total").innerHTML =
-        `Total : $${sum.toFixed(2)}<br>${formatFBU(sum * USD_TO_FBU)}`;
-    }
+    return `
+      <div class="cart-item">
+        <div>
+          <strong>${p.name}</strong><br>
+          Quantité : ${item.quantity}<br>
+          $${(p.price * item.quantity).toFixed(2)}
+        </div>
 
-    function checkout() {
-      if (!cart.length) {
-        alert("Votre panier est vide. Ajoutez d'abord un produit.");
-        return;
-      }
+        <button class="remove"
+          onclick="removeFromCart(${p.id})">
+          Retirer
+        </button>
+      </div>
+    `;
+  }).join("");
 
-      let message = "Bonjour Daniel Shop ! Je souhaite commander :\n\n";
-      let sum = 0;
+  const sum = cart.reduce((total, item) => {
+    return total +
+      products.find(p => p.id === item.id).price * item.quantity;
+  }, 0);
 
-      cart.forEach(item => {
-        const p = products.find(product => product.id === item.id);
-        message += "- " + p.name + " x " + item.quantity +
-          " = $" + (p.price * item.quantity).toFixed(2) + "\n";
-        sum += p.price * item.quantity;
-      });
+  document.getElementById("total").innerHTML =
+    `Total : $${sum.toFixed(2)}<br>${formatFBU(sum * USD_TO_FBU)}`;
+}
 
-      message += "\nTotal : $" + sum.toFixed(2);
-      message += "\nTotal en FBu : " +
-        Math.round(sum * USD_TO_FBU).toLocaleString("fr-FR");
-      message += "\nMerci !";
+function checkout() {
+  if (!cart.length) {
+    alert("Votre panier est vide. Ajoutez d'abord un produit.");
+    return;
+  }
 
-      window.open(
-        "https://wa.me/" + WHATSAPP + "?text=" +
-        encodeURIComponent(message),
-        "_blank"
-      );
-    }
+  let message = "Bonjour Daniel Shop ! Je souhaite commander :\n\n";
+  let sum = 0;
 
-    renderProducts();
-    renderCart();
-  </script>
+  cart.forEach(item => {
+    const p = products.find(product => product.id === item.id);
+
+    message += "- " + p.name + " x " + item.quantity +
+      " = $" + (p.price * item.quantity).toFixed(2) + "\n";
+
+    sum += p.price * item.quantity;
+  });
+
+  message += "\nTotal : $" + sum.toFixed(2);
+  message += "\nTotal en FBu : " +
+    Math.round(sum * USD_TO_FBU).toLocaleString("fr-FR");
+  message += "\nMerci !";
+
+  window.open(
+    "https://wa.me/" + WHATSAPP + "?text=" +
+    encodeURIComponent(message),
+    "_blank"
+  );
+}
+
+renderProducts();
+renderCart();
+</script>
+
 </body>
 </html>
